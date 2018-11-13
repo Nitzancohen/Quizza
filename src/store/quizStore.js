@@ -5,9 +5,9 @@ class QuizStore {
 
     @observable quizzes = null;
 
-    @action getUser = async (userName) => {
-        const currentUser = await axios.get('http://localhost:8080/quizzes', {userName});
-        this.quizzes = currentUser.data;
+    @action getQuizzes = async () => {
+        const allQuizzes = await axios.get('http://localhost:8080/quizzes');
+        this.quizzes = allQuizzes.data;
     }
 
 }
