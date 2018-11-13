@@ -4,7 +4,7 @@ const resultSchema = require('./resultModel');
 const Schema = mongoose.Schema;
 
 const quizSchema = new Schema ({
-    name: String,
+    title: String,
     desc: String,
     questions: [questionSchema],
     results: [resultSchema]
