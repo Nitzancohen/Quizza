@@ -5,16 +5,14 @@ class NavBar extends Component {
     render() {
 
         return (<Router>
-            <nav class="navbar navbar-inverse">
-                <div class="container-fluid">
-                    <div class="navbar-header">
-                        <a class="navbar-brand" href="#">QUIZZA</a>
+            <nav className="navbar navbar-inverse">
+                <div className="container-fluid">
+                    <div className="navbar-header">
+                        QUIZZA
                     </div>
-                    <span class="nav navbar-nav navbar-right">
-                        
+                    <span className="leftnavbar">
                             <Link to="./Quiz_Catalog/QuizzesScreen"> <span>Home</span></Link>
                             <Link to="./Landing/LandingPage"><span> Login</span></Link>
-                        
                     </span>
                 </div>
             </nav>
