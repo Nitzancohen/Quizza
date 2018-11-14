@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
 import NavBar from './components/General/NavBar';
+import {inject, observer} from 'mobx-react';
 
+@inject('store')
+@observer
 class App extends Component {
   render() {
     return (
