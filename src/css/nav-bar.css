@@ -1,0 +1,14 @@
+.allnavbar{
+    background: plum;
+    color: black;
+    height: 10%;
+    width: 100%;
+    overflow:hidden;
+}
+.rightnavbar{
+float: left;
+}
+.leftnavbar{
+    float: right;
+    text-decoration: none;
+}
