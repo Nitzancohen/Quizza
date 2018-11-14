@@ -2,9 +2,14 @@ import { observable, action } from 'mobx';
 import axios from 'axios';
 
 class QuizStore {
-
+    @observable user = null;
     @observable quizzes = null;
     @observable quiz = null;
+
+    @action addUser = async (userName) => {
+        const newUser = await axios.post('http://localhost8080/user/' + userName);
+        this.user = newUser.data;
+    }
 
     @action getQuizzes = async ()=> {
         const allQuizzes = await axios.get('http://localhost:8080/quizzes');
