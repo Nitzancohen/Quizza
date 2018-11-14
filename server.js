@@ -4,10 +4,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
 const quizApi = require('./apis/quizApi');
+const userApi = require('./apis/userApi');
 
 const SERVER_PORT = 8080;
 
-mongoose.connect('mongodb://localhost/quizza', () => {
+mongoose.connect('mongodb://localhost/nitz', () => {
     console.log('Connection to DB established');
 });
 
@@ -24,6 +25,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(quizApi);
+app.use(userApi);
 
 app.listen(SERVER_PORT, () => {
     console.log(`Server started on port ${SERVER_PORT}`)

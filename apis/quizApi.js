@@ -16,4 +16,17 @@ router.get('/quiz/:id', function (req, res) {
     })
 })
 
+router.post('/quiz', function (req, res) {
+    const q = req.body.quiz;
+    Quiz.create({
+        title: q.title,
+        desc: q.desc,
+        questions: [],
+        results: []
+    }).then(function (err, quiz) {
+        if (err) res.status(500).send(err);
+        else res.send(quiz);
+    })
+})
+
 module.exports = router;
