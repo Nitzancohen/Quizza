@@ -13,7 +13,6 @@ class App extends Component {
     return (<Router>
       <div className="App">
         <NavBar />
-
         <Route path="/home" exact render={() => <QuizzesScreen />} />
         <Route path="/login" exact render={() => <LandingPage />} />
 

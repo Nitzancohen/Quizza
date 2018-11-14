@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 
-@inject(stores => ({
-    // store: stores.store
-    // 
-}))
+@inject('store')
 @observer
 class QuizBox extends Component {
 
-    render() {
-        const { quizzes } = this.props;
+    handleClick = () => {
+        this.props.store.getCurrentQuizz(this.props.quiz._id)
+    };
 
+    render() {
+        // const { quizzes } = this.props;
         return (
-            <div className='box-link' onClick={}>
-                <p>{quizzes[this.props.index].name}</p>
+            <div className='box-link' onClick={this.handleClick}>
+                <h2>{this.props.quiz.title}</h2>
+                <span>{this.props.quiz.desc}</span>
             </div>
         );
     }
