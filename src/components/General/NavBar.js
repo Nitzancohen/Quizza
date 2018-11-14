@@ -1,18 +1,19 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Link } from 'react-router-dom';
+import '../../css/nav-bar.css';
 
 class NavBar extends Component {
     render() {
 
         return (<Router>
-            <nav className="navbar navbar-inverse">
-                <div className="container-fluid">
-                    <div className="navbar-header">
+            <nav className="allnavbar">
+                <div className="container">
+                    <span className="rightnavbar">
                         QUIZZA
-                    </div>
+                    </span>
                     <span className="leftnavbar">
-                            <Link to="./Quiz_Catalog/QuizzesScreen"> <span>Home</span></Link>
-                            <Link to="./Landing/LandingPage"><span> Login</span></Link>
+                            <Link to="/home"> <span>Home</span></Link>
+                            <Link to="/login"><span> Login</span></Link>
                     </span>
                 </div>
             </nav>
