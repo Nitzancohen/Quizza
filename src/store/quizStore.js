@@ -7,7 +7,7 @@ class QuizStore {
     @observable quiz = null;
 
     @action addUser = async (userName) => {
-        const newUser = await axios.post('http://localhost8080/user/' + userName);
+        const newUser = await axios.get('http://localhost:8080/user/' + userName);
         this.user = newUser.data;
     }
 
