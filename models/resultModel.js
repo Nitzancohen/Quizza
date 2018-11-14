@@ -8,5 +8,4 @@ const resultSchema = new Schema ({
     desc: String
 })
 
-const Result = mongoose.model('result', resultSchema);
-module.exports = Result;
+module.exports = resultSchema;

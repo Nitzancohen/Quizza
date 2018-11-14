@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 
 const questionSchema = new Schema ({
     text: String,
-    answer: [answerSchema]
+    answers: [answerSchema]
 })
 
-const Question = mongoose.model('question', questionSchema);
-module.exports = Question;
+module.exports = questionSchema;

@@ -6,5 +6,4 @@ const answerSchema = new Schema ({
     score: Number
 })
 
-const Answer = mongoose.model('answer', answerSchema);
-module.exports = Answer;
+module.exports = answerSchema;
