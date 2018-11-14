@@ -10,7 +10,8 @@ import LandingPage from './components/Landing/LandingPage';
 @observer
 class App extends Component {
   render() {
-    return (<Router>
+    return (
+    <Router>
       <div className="App">
         <NavBar />
         <Route path="/home" exact render={() => <QuizzesScreen />} />

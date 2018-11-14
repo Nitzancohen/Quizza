@@ -1,11 +1,15 @@
 const express = require('express');
 const router = express.Router();
-const Uer = require('../models/userModel');
+const User = require('../models/userModel');
 
 router.get('/user/:name', function (req, res) {
-    Quiz.findOne({userName: req.params.name}).populate('quizzes').exec(function (err, user) {
+    User.findOne({userName: req.params.name}).exec(function (err, user) {
         if (err) res.status(500).send(err);
-        else res.send(user);
+        else if(user) res.send(user);
+        else User.create({userName: req.params.name, quizzes: []}).then(function (err, user) {
+            if (err) res.status(500).send(err);
+            else res.send(user);
+        })
     })
 })
 
