@@ -12,8 +12,8 @@ class NavBar extends Component {
                         QUIZZA
                     </span>
                     <span className="leftnavbar">
-                            <Link to="/home"> <span>Home</span></Link>
-                            <Link to="/login"><span> Login</span></Link>
+                            <Link to="/home" className='decoretion'> <span>Home</span></Link>
+                            <Link to="/login" className='decoretion'><span> Login</span></Link>
                     </span>
                 </div>
             </nav>
