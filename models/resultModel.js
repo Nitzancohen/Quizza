@@ -2,8 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const resultSchema = new Schema ({
-    maxScore: Number,
-    minScore: Number,
+    score: Number,
     title: String,
     desc: String
 })
