@@ -8,7 +8,7 @@ const userApi = require('./apis/userApi');
 
 const SERVER_PORT = 8080;
 
-mongoose.connect('mongodb://localhost/nitz', () => {
+mongoose.connect('mongodb://localhost/quizza', () => {
     console.log('Connection to DB established');
 });
 
