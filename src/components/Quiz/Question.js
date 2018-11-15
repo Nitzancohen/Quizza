@@ -14,9 +14,7 @@ class Question extends Component {
                 <h1>{question.text}</h1>
                 <Answers index={this.props.index} />
                 <form>
-                    <span><input type="button" className="prev-button" value="previous" /></span>
-                    <div>{question.text}</div>
-                    <span><input type="button" className="next-button" value="next" /></span>
+                    <span><input type="button" className="next-button" value="next" onClick={this.props.nextquestion} /></span>
                 </form>
             </div>
         )
