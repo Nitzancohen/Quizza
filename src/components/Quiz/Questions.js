@@ -11,20 +11,20 @@ class Questions extends Component {
 
 
     checkAnswer = (answer) => {
-        if (answer) {
-            this.answer = answer
-        }
-
+        if (answer) this.answer = answer
     }
 
     @action nextquestion = () => {
         if (this.answer) {
             let length = this.props.store.quiz.questions.length
             if (this.index < length - 1) {
+                this.props.addAnswer(this.answer)
+                this.answer = 0
                 this.index++
             }
             else {
-                //לקרוא לפנוקציה של סיום הקוויז
+                this.props.addAnswer(this.answer)
+                this.props.endQuiz()
             }
         }
         else {
