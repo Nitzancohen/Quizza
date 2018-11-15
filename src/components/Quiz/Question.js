@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Answers from './Answers';
 import { inject, observer } from 'mobx-react';
 
-@inject(store)
+@inject("store")
 @observer
 class Question extends Component {
 
@@ -10,7 +10,7 @@ class Question extends Component {
         let question = this.props.store.quiz.questions[this.props.index]
         return (
             <div className="question">
-                <h1>{question.text}</h1>
+                <h3>{question.text}</h3>
                 <Answers index={this.props.index} />
                 <form>
                     <span><input type="button" className="next-button" value="next" onClick={this.props.nextquestion} /></span>
