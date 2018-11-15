@@ -2,19 +2,13 @@ import React, { Component } from "react";
 import Question from './Question';
 
 class Questions extends Component {
-    questions = [
-        {
-            text:"",
-            answers: []
-        },
-        //...10
-    ]
 
     render() {
+        let questions= this.props.store.quiz.questions
         return (
             <div className="Questions">
-                {this.questions.map( question, i => {
-                    <Question question={question}  key={i} />
+                {questions.map(  i => {
+                    <Question index={i}  key={i} />
                 })}
             </div>
         )
