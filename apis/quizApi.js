@@ -31,7 +31,8 @@ router.post('/quiz', function (req, res) {
 
 module.exports = router;
 
-/* router.get('/entertodb', function (req, res) {
+/*
+ router.get('/entertodb', function (req, res) {
     Quiz.create({
         title: "Personality Quiz",
         desc: "Wanna know how awesome you are? Wanna know what is your main personality type? Start this quiz to see what kind of a person you are.",
@@ -150,7 +151,7 @@ module.exports = router;
             }]
         },
         {
-            text: "Jona was offered a job abroud, how do you REACT?",
+            text: "Jona was offered a job abroad, how do you REACT?",
             answers: [{
                 text: "throw him a party and invite his favorite DJ's",
                 score: 1
@@ -171,7 +172,7 @@ module.exports = router;
         {
             text: "You're on a Hackathon and there's only one slice of pizza left. would you eat it?",
             answers: [{
-                text: "one clice is a lot, we can share it",
+                text: "one slice is a lot, we can share it",
                 score: 1
             },
             {
