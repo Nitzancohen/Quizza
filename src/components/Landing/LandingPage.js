@@ -9,22 +9,23 @@ class LandingPage extends Component {
     @observable userName = '';
 
     @action inputChange = (e) => this.userName = e.target.value;
- 
+
     login = () => {
         this.props.store.addUser(this.userName)
         this.userName = ''
     }
- 
+
     render() {
-      return (
-        <div className="container">
-        <h1>QUIZZA</h1>
-        <span className="input">
-         <span className="username"> Username:</span> <input className="input-username" type="text" name="userName" onChange={this.inputChange} value={this.userName} placeholder='Username'/>
-          <br/><input className="button" type="button" onClick={this.login} value="Login"/>
-          <span></span>
-          </span>
-        </div> );
+        return (
+            <div className="container">
+                <h1>QUIZZA</h1>
+                <span className="input">
+                    <span className="username"> Username:</span> <input className="input-username" type="text" name="userName" onChange={this.inputChange} value={this.userName} placeholder='Username' />
+                    <br />
+                    <input className="LoginButton" type="button" onClick={this.login} value="Login" />
+                    <span></span>
+                </span>
+            </div>);
     }
 }
 

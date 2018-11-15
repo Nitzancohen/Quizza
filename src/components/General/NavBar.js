@@ -8,12 +8,13 @@ class NavBar extends Component {
         return (
             <nav className="allnavbar">
                 <div className="container">
-                    <span className="rightnavbar">
+                    <span className="leftnavbar">
                         QUIZZA
                     </span>
-                    <span className="leftnavbar">
-                            <Link to="/home" className='decoretion'><i className="fas fa-home"></i><span> Home </span></Link>
-                            <Link to="/login" className='decoretion'><i className="fas fa-sign-in-alt"></i><span> Login </span></Link>
+          
+                    <span className="rightnavbar">
+                            <Link to="/home" className='navLinks'><i class="fas fa-home"></i><span> Home </span></Link>
+                            <Link to="/login" className='navLinks'><i class="fas fa-sign-in-alt"></i><span> Login </span></Link>
                     </span>
                 </div>
             </nav>

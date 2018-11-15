@@ -1,11 +1,16 @@
-## TODO for day 2 - morning tasks
-* fixing nav-bar links and routs -  YUVAL
+## TODO for day 2 - morning tasks:
+* fixing nav-bar links and routs -  YUVAL - DONE
 * User-Model - DANNY
 * landing page - YUVAL
 * userAPI + quizAPI - NITZAN
-* \components building - GEFEN -> quiz screen + clicking on quizBox => quiz component
+* components building - GEFEN -> quiz screen + clicking on quizBox => quiz component
 
+## TODO for day 3 - show time tasks:
+* viewing the quiz, questions, etc - YUVAL + DANNY
+* components building + modals + home screen view and continue modals - GEFEN (quiz screen + clicking on quizBox => quiz component)
+* scoring and results functions - NITZAN
 
+<!-- ================================================================================================================= -->
 ## desc for personality quiz:
 * Discover careers and occupations most suitable for your personality type along with examples of educational institutions where you can get a relevant degree or training.
 * Understand communication and learning styles of your type.
@@ -24,3 +29,6 @@
             </p>
         </div>
 </button>
+<!-- =============================================================================================================== -->
+https://psychologia.co/four-temperaments/
+## Four Temperaments: Sanguine, Phlegmatic, Choleric, and Melancholic Personality Types
