@@ -11,10 +11,7 @@ class Question extends Component {
         return (
             <div className="question">
                 <h3>{question.text}</h3>
-                <Answers index={this.props.index} />
-                <form>
-                    <span><input type="button" className="next-button" value="next" onClick={this.props.nextquestion} /></span>
-                </form>
+                <Answers index={this.props.index} checkAnswer={this.props.checkAnswer} />
             </div>
         )
     }
