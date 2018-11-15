@@ -6,14 +6,14 @@ import { inject, observer } from "mobx-react";
 class Answers extends Component {
 
     render() {
-        const answers = this.props.store.quiz.question[this.props.index].answers
+        const answers = this.props.store.quiz.questions[this.props.index].answers
         return (
             <div className="answers">
-                {answers.map(i => {
+                {answers.map((answer, i) => {
                     return (
                         <div className="answer">
-                            <input type="radio" name="answer" id={i} value={i} />
-                            <label for={i}>{i}</label>
+                            <input type="radio" name="answer" id={i} value={answer.text} />
+                            <label for={i}>{answer.text}</label>
                         </div>
                     )
                 })}

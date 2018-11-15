@@ -8,7 +8,7 @@ import {observable, action} from 'mobx'
 class Questions extends Component {
 @observable index=0
 
-@action nextquestion(){
+@action nextquestion= ()=>{
     let length= this.props.store.quiz.questions.length
 if(this.index<length-1){
     this.index++
