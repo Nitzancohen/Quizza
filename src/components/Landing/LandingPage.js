@@ -21,7 +21,7 @@ class LandingPage extends Component {
         <h1>QUIZZA</h1>
         <span className="input">
          <span className="username"> Username:</span> <input className="input-username" type="text" name="userName" onChange={this.inputChange} value={this.userName} placeholder='Username'/>
-          <input type="button" onClick={this.login} value="Login"/>
+          <br/><input className="button" type="button" onClick={this.login} value="Login"/>
           <span></span>
           </span>
         </div> );
