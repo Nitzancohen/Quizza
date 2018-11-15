@@ -6,7 +6,7 @@ import { inject, observer } from "mobx-react";
 class Answers extends Component {
 
     render() {
-        const answers = this.props.store.quiz.question[this.props.index].answers
+        const answers = this.props.store.quiz.questions[this.props.index].answers
         return (
             <div className="answers">
                 {answers.map((answer, i) => {
