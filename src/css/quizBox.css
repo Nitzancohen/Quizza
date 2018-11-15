@@ -30,6 +30,10 @@
 
 /* add recipe modal */
 
+.box-link {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
 #addRecipe {
 	background-color: #5c9d7d;
 	margin-left: 230px;
@@ -40,7 +44,10 @@
 }
 
 .modal-title {
-	text-align: center;
+  text-align: center;
+  font-size: 24px; 
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+   color: purple
 }
 
 .modal {

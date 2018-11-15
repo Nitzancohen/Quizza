@@ -3,7 +3,7 @@ import { observer, inject } from "mobx-react";
 import Questions from './Questions';
 import '../../css/quiz.css';
 
-@inject("store")
+@inject('store')
 @observer
 class Quiz extends Component {
 
@@ -21,9 +21,9 @@ class Quiz extends Component {
         return greatestOccurring.val;
     }
 
-    componentDidMount() {
-        this.props.store.getCurrentQuizz("5bed1ceb37f6772d9c1e0448")
-    }
+    // componentDidMount() {
+    //     this.props.store.getCurrentQuizz("5bed723adce85c07c46404a5")
+    // }
 
     showQuiz(quiz) {
         return (

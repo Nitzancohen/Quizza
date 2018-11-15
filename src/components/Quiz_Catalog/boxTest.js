@@ -4,7 +4,29 @@ import Quiz from '../Quiz/Quiz'
 
 @inject('store')
 @observer
-class boxTest extends Component {
+class BoxTest extends Component {
+
+    quizzes = () => {
+        let allQuizzes = this.props.store.quizzes
+        if (allQuizzes) {
+            return (
+                allQuizzes.map(q => {
+                    console.log(q)
+                    return (
+                        <button type="button" id="buttonModal1" data-toggle="modal" data-target="#myModal1">
+                            <div className="service-item second-service">
+                                <div className="icon"></div>
+                                <div>
+                                    <h4> {q.title} </h4>
+                                    <p> {q.desc} </p>
+                                </div>
+                            </div>
+                        </button>
+                    )
+                })
+            )
+        }
+    }
 
     render() {
 
@@ -21,20 +43,14 @@ class boxTest extends Component {
                     </div>
                     <div className="row">
                         <div className="col-md-3 col-sm-6 col-xs-12">
-                            <button type="button" id="buttonModal1" data-toggle="modal" data-target="#myModal1">
-                                <div className="service-item second-service">
-                                    <div className="icon"></div>
-                                    <h4> {this.props.quiz.title} </h4>
-                                    <p> {this.props.quiz.desc} </p>
-                                </div>
-                            </button>
+                            {this.quizzes()}
 
                             <div className="modal fade" id="myModal1" role="dialog">
                                 <div className="modal-dialog">
                                     <div className="modal-content">
                                         <div className="modal-header">
                                             <button type="button" className="close" data-dismiss="modal">&times;</button>
-                                            <h4 className="modal-title" style="font-size: 24px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: purple"> add a new quiz </h4>
+                                            <h4 className="modal-title" > add a new quiz </h4>
                                         </div>
                                         <div className="modal-body">
                                             <div className="container">
@@ -43,7 +59,7 @@ class boxTest extends Component {
                                             </div>
                                         </div>
                                         <div className="modal-footer">
-                                            <button type="button" className="btn btn-default" data-dismiss="modal" style=" background-color: khaki">Close</button>
+                                            <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
                                         </div>
                                     </div>
 
@@ -57,4 +73,4 @@ class boxTest extends Component {
     }
 }
 
-export default boxTest;
+export default BoxTest;
