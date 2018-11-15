@@ -1,31 +1,45 @@
 import React, { Component } from "react";
 import Question from './Question';
 import { observer, inject } from "mobx-react";
-import {observable, action} from 'mobx'
+import { observable, action } from 'mobx'
 
 @inject("store")
 @observer
 class Questions extends Component {
-@observable index=0
+    @observable index = 0
+    @observable answer = 0
 
-@action nextquestion= ()=>{
-    let length= this.props.store.quiz.questions.length
-if(this.index<length-1){
-    this.index++
-}
-else{
-    //לקרוא לפנוקציה של סיום הקוויז
-}
-}
+
+    checkAnswer = (answer) => {
+        if (answer) {
+            this.answer = answer
+        }
+
+    }
+
+    @action nextquestion = () => {
+        if (this.answer) {
+            let length = this.props.store.quiz.questions.length
+            if (this.index < length - 1) {
+                this.index++
+            }
+            else {
+                //לקרוא לפנוקציה של סיום הקוויז
+            }
+        }
+        else {
+            alert("Please choose a answer to continue")
+        }
+
+    }
     render() {
-        
+
         return (
             <div className="Questions">
-            <Question index={this.index} key={this.index} nextquestion={this.nextquestion}/>
-
-                {/* {questions.map(  i => {
-                    <Question index={i}  key={i} />
-                })} */}
+                <Question index={this.index} key={this.index} checkAnswer={this.checkAnswer} />
+                <form>
+                    <span><input type="button" className="next-button" value="next" onClick={this.nextquestion} /></span>
+                </form>
             </div>
         )
     }
