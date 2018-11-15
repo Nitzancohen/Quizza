@@ -11,13 +11,13 @@ class Answers extends Component {
     this.props.checkAnswer(this.answer)
 }
     render() {
-        const answers = this.props.store.quiz.questions[this.props.index].answers
+        const answers = this.props.store.quiz.questions[this.props.index].answers;
         return (
             <div className="answers">
                 {answers.map((answer, i) => {
                     return (
                         <div className="answer">
-                            <input type="radio" name="answer" id={i} value={answer.text} onChange={this.changeAnswer}/>
+                            <input type="radio" name="answer" id={i} key={i} value={answer.text} onChange={this.changeAnswer}/>
                             <label for={i}>{answer.text}</label>
                         </div>
                     )
