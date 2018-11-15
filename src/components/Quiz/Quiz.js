@@ -11,8 +11,7 @@ class Quiz extends Component {
         this.props.store.getCurrentQuizz("5bed1ceb37f6772d9c1e0448")
     }
 
-    render() {
-        const quiz = this.props.store.quiz
+    showQuiz(quiz) {
         return (
             <div className="quiz">
                 <h3>{quiz.title}</h3>
@@ -21,6 +20,11 @@ class Quiz extends Component {
                 <Questions />
             </div>
         )
+    }
+
+    render() {
+        const quiz = this.props.store.quiz
+        return quiz ? this.showQuiz(quiz) : null
     }
 }
 
