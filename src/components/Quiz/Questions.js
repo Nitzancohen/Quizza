@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Question from './Question';
 import { observer, inject } from "mobx-react";
-import {observable} from 'mobx'
+import {observable, action} from 'mobx'
 
 @inject("store")
 @observer

@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import Answers from './Answers';
-import { inject } from 'mobx-react';
-import { observe } from 'mobx';
+import { inject, observer } from 'mobx-react';
 
-@inject
-@observe
+@inject(store)
+@observer
 class Question extends Component {
 
     render() {
