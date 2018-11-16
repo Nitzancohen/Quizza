@@ -1,66 +1,75 @@
 import React, { Component } from "react";
+import { observable } from "mobx";
+import { observer } from "mobx-react";
 // import '../../css/questionForm';
 
+@observer
 class QuestionForm extends Component {
-    constructor() {
-        super()
-        this.state = {
-            formInputs: [
-                {
-                    newQuestion: "",
-                    answer1: "",
-                    answer2: "",
-                    answer3: "",
-                    answer4: ""
-                }
-            ]
+    @observable questions = [];
+    @observable currentQuestion = { text: '', answer1: '', answer2: '', answer3: '', answer4: '' }
+
+    inputChange = (e) => this.currentQuestion[e.target.name] = e.target.value;
+
+    addQuestion = () => {
+        if ((this.questions.length < 10)
+            && (this.currentQuestion.text !== '')
+            && (this.currentQuestion.answer1 !== '')
+            && (this.currentQuestion.answer2 !== '')
+            && (this.currentQuestion.answer3 !== '')
+            && (this.currentQuestion.answer4 !== '')) {
+            this.questions.push(this.currentQuestion)
+            this.currentQuestion = { text: '', answer1: '', answer2: '', answer3: '', answer4: '' }
         }
     }
 
-    inputChange = (i ,e) => {
-        const {name, value} = e.target
-        let formInputs = [...this.state.formInputs]
-        formInputs[i] = {...formInputs[i], [name]: value}
-        this.setState({ formInputs })
-        console.log(this.state.formInputs)
-    }
-
-    addQuestion = ()=> {
-        this.setState(prevState => ({
-            formInputs: [... prevState.formInputs, {
-                newQuestion: "",
-                answer1: "",
-                answer2: "",
-                answer3: "",
-                answer4: ""
-            }]
-        }))
-    }
-
-    removeQuestion = (i)=> {
-        let formInputs = [...this.state.formInputs]
-        formInputs.splice(i, 1);
-        this.setState({ formInputs });
-    }
-
-    createNewQuestion = ()=> {
-        return this.state.formInputs.map((el, i)=> (
-            <div key={i}>
-                <input type="text" placeholder="Question" name="newQuestion" onChange={this.inputChange} />
-                <input type="text" placeholder="Answer 1" name="answer1" value={el.answer1 || ""} onChange={this.inputChange} />
-                <input type="text" placeholder="Answer 2" name="answer2" value={el.answer2 || ""} onChange={this.inputChange} />
-                <input type="text" placeholder="Answer 3" name="answer3"  value={el.answer3 || ""} onChange={this.inputChange} />
-                <input type="text" placeholder="Answer 4" name="answer4" value={el.answer4 || ""} onChange={this.inputChange} />
-                <input type="button" value="remove" onClick={this.removeQuestion} />
+    showNewQuestionSection = () => {
+        return (
+            <div>
+                <input type="text" placeholder="Question" name="text" value={this.currentQuestion.text} onChange={this.inputChange} /> <br />
+                <input type="text" placeholder="Answer 1" name="answer1" value={this.currentQuestion.answer1} onChange={this.inputChange} /> <br />
+                <input type="text" placeholder="Answer 2" name="answer2" value={this.currentQuestion.answer2} onChange={this.inputChange} /> <br />
+                <input type="text" placeholder="Answer 3" name="answer3" value={this.currentQuestion.answer3} onChange={this.inputChange} /> <br />
+                <input type="text" placeholder="Answer 4" name="answer4" value={this.currentQuestion.answer4} onChange={this.inputChange} /> <br />
+                <input type="button" value="+" onClick={this.addQuestion} />
             </div>
-        ))
+        )
+    }
+
+    showExistingQuestions = (showNew) => {
+        return (
+            <div>
+                {showNew ? this.showNewQuestionSection() : <p>Sorry, no more questions are available! :(</p>}
+                {this.questions.map((q, i) => (
+                    <div key={i}>
+                        <input type="text" value={q.text} /> <br />
+                        <input type="text" value={q.answer1} /> <br />
+                        <input type="text" value={q.answer2} /> <br />
+                        <input type="text" value={q.answer3} /> <br />
+                        <input type="text" value={q.answer4} /> <br />
+                    </div>
+                ))}
+            </div>
+        )
+    }
+
+    createNewQuestion = () => {
+        if (this.questions.length === 10) return this.showExistingQuestions(false)
+        if (this.questions.length) return this.showExistingQuestions(true)
+        return this.showNewQuestionSection()
+    }
+
+    saveQuestions = () => {
+        if(this.questions.length >= 5) this.props.saveQuestions(this.questions)
+        else alert('Please enter at least 5 questions...')
     }
 
     render() {
         return (
             <div className="question-form">
+                <h4>Enter questions and answers</h4>
+                <p>(please note that answer #1 must always fit result type #1 and so on)</p>
                 {this.createNewQuestion()}
-                <input type="button" value="+" onClick={this.addQuestion} />
+                <input type="button" value="save questions" onClick={this.saveQuestions} />
             </div>
         )
     }

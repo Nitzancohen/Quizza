@@ -1,22 +1,37 @@
 import React, { Component } from "react";
 
 class ResultsForm extends Component {
+    results = [];
+    
+    saveResults = () => {
+        this.props.saveResults(this.results)
+    }
 
     render() {
-        return(
+        return (
             <div className="results-form">
+                <h4>Enter the final result types</h4>
                 <div>
-                    result 1
+                    <div>1</div>
+                    Title: <input type="text" placeholder="title" /> <br />
+                    Description: <input type="text" placeholder="description" />
                 </div>
                 <div>
-                    result 2
+                    <div>2</div>
+                    Title: <input type="text" placeholder="title" /> <br />
+                    Description: <input type="text" placeholder="description" />
                 </div>
                 <div>
-                    result 3
+                    <div>3</div>
+                    Title: <input type="text" placeholder="title" /> <br />
+                    Description: <input type="text" placeholder="description" />
                 </div>
                 <div>
-                    result 4
+                    <div>4</div>
+                    Title: <input type="text" placeholder="title" /> <br />
+                    Description: <input type="text" placeholder="description" />
                 </div>
+                <input type="button" value="save results" onClick={this.saveResults} />
             </div>
         )
     }
