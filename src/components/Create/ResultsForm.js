@@ -1,25 +1,28 @@
 import React, { Component } from "react";
 
 class ResultsForm extends Component {
-    results = {title1: '', desc1:'', title2: '', desc2:'', title3: '', desc3:'', title4: '', desc4:'',}
-    
+    results = { title1: '', desc1: '', title2: '', desc2: '', title3: '', desc3: '', title4: '', desc4: '', }
+
     saveResults = () => {
-        if ((this.results.title1 !== '')
-            && (this.results.desc1 !== '')
-            && (this.results.title2 !== '')
-            && (this.results.desc2 !== '')
-            && (this.results.title3 !== '')
-            && (this.results.desc3 !== '')
-            && (this.results.title4 !== '')
-            && (this.results.desc4 !== '')){
-                this.props.saveResults(this.results)
-            } else alert("please create all the results!")
+        if ((this.results.title1)
+            && (this.results.desc1)
+            && (this.results.title2)
+            && (this.results.desc2)
+            && (this.results.title3)
+            && (this.results.desc3)
+            && (this.results.title4)
+            && (this.results.desc4)) {
+            let formattedResults = [
+                { score: 1, title: this.results.title1, desc: this.results.desc1 },
+                { score: 2, title: this.results.title2, desc: this.results.desc2 },
+                { score: 3, title: this.results.title3, desc: this.results.desc3 },
+                { score: 4, title: this.results.title4, desc: this.results.desc4 }
+            ];
+            this.props.saveResults(formattedResults)
+        } else alert("please create all the results!")
     }
 
-    inputChange = (e)=> {
-        this.results[e.target.name] = e.target.value
-        console.log(this.results[e.target.name])  
-    } 
+    inputChange = (e) => this.results[e.target.name] = e.target.value
 
     render() {
         return (

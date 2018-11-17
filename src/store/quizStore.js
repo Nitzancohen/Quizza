@@ -22,9 +22,14 @@ class QuizStore {
     }
 
     @action saveQuiz = (header, questions, results)=> {
-        console.log('quiz created!')
-        console.log(header, questions, results)
-        // probably axios.post?
+        let newQuiz = {
+            title: header.title,
+            desc: header.description,
+            questions: questions,
+            results: results
+        }
+        console.log(newQuiz)
+        // axios.post('...', newQuiz)
     }
 
 }

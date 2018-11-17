@@ -17,22 +17,20 @@ class CreateForm extends Component {
 
     inputChange = (e) => this.formInputs[e.target.name] = e.target.value;
 
-    saveQuestions = (questions) => {
-        this.quizQuestions = questions;
-        console.log(this.quizQuestions)
-    }
+    saveQuestions = (questions) => this.quizQuestions = questions;
 
-    saveResults = (results) => {
-        this.quizResults = results;
-        console.log(this.quizResults)
-    }
+    saveResults = (results) => this.quizResults = results;
 
     saveQuiz = () => {
-        // check that everything is ok
-        const header = this.formInputs
-        const questions = this.quizQuestions
-        const results = this.quizResults
-        this.props.store.saveQuiz(header, questions, results)
+        if ((this.formInputs.title)
+        && (this.formInputs.description)
+        && (this.quizQuestions)
+        && (this.quizResults)) {
+            const header = this.formInputs
+            const questions = this.quizQuestions
+            const results = this.quizResults
+            this.props.store.saveQuiz(header, questions, results)
+        } else alert('Please make sure to provide all fields!')
     }
 
     render() {
@@ -48,7 +46,7 @@ class CreateForm extends Component {
                 </div>
                 <ResultsForm saveResults={this.saveResults} />
                 <QuestionForm saveQuestions={this.saveQuestions} />
-                <input type="button" value="CRATE QUIZ!!" onClick={this.saveQuiz} />
+                <input type="button" value="CREATE QUIZ!!" onClick={this.saveQuiz} />
             </div>
         )
     }
