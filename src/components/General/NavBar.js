@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom';
 import '../../css/nav-bar.css';
 
@@ -9,7 +8,7 @@ class NavBar extends Component {
         return (
             <nav className="allnavbar">
                 <div className="container">
-                    <span className="rightnavbar">
+                    <span className="leftnavbar">
                         QUIZZA
                     </span>
                     <span className="leftnavbar">
