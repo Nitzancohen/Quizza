@@ -21,6 +21,12 @@ class QuizStore {
         this.quiz = currentQuizz.data;
     }
 
+    @action saveQuiz = (header, questions, results)=> {
+        console.log('quiz created!')
+        console.log(header, questions, results)
+        // probably axios.post?
+    }
+
 }
 
 const store = new QuizStore();
