@@ -18,8 +18,7 @@ class App extends Component {
         <NavBar />
         <Route path="/" exact render={() => <LandingPage />} />
         <Route path="/home" exact render={() => <QuizzesScreen />} />
-        <Route path="/login" exact render={() => <LandingPage />} />
-        <Route path="/create-quiz" exact render={()=> <CreateQuiz />} /> // <--- temporary!!!
+        <Route path="/create-quiz" exact render={()=> <CreateQuiz />} /> {/* <--- temporary!!! */}
       </div>
     </Router>
     );
