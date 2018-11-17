@@ -21,15 +21,15 @@ class QuizStore {
         this.quiz = currentQuizz.data;
     }
 
-    @action saveQuiz = (header, questions, results)=> {
+    @action saveQuiz = async (header, questions, results)=> {
         let newQuiz = {
             title: header.title,
             desc: header.description,
             questions: questions,
             results: results
         }
-        console.log(newQuiz)
-        // axios.post('...', newQuiz)
+        let q = await axios.post('http://localhost:8080/quiz', newQuiz)
+        console.log(q.data);
     }
 
 }
