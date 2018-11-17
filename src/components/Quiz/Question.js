@@ -1,23 +1,17 @@
 import React, { Component } from 'react';
 import Answers from './Answers';
-import { inject } from 'mobx-react';
-import { observe } from 'mobx';
+import { inject, observer } from 'mobx-react';
 
-@inject
-@observe
+@inject("store")
+@observer
 class Question extends Component {
 
     render() {
         let question = this.props.store.quiz.questions[this.props.index]
         return (
             <div className="question">
-                <h1>{question.text}</h1>
-                <Answers index={this.props.index} />
-                <form>
-                    <span><input type="button" className="prev-button" value="previous" /></span>
-                    <div>{question.text}</div>
-                    <span><input type="button" className="next-button" value="next" /></span>
-                </form>
+                <h3>{question.text}</h3>
+                <Answers index={this.props.index} checkAnswer={this.props.checkAnswer} />
             </div>
         )
     }

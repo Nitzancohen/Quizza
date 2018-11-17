@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Link } from 'react-router-dom';
 import '../../css/nav-bar.css';
 
@@ -9,12 +8,13 @@ class NavBar extends Component {
         return (
             <nav className="allnavbar">
                 <div className="container">
-                    <span className="rightnavbar">
+                    <span className="leftnavbar">
                         QUIZZA
                     </span>
-                    <span className="leftnavbar">
-                            <Link to="/home" className='decoretion'><i class="fas fa-home"></i><span> Home </span></Link>
-                            <Link to="/login" className='decoretion'><i class="fas fa-sign-in-alt"></i><span> Login </span></Link>
+
+                    <span className="rightnavbar">
+                        <Link to="/home" className='navLinks'><i className="fas fa-home"></i><span> Home </span></Link>
+                        <Link to="/" className='navLinks'><i className="fas fa-sign-in-alt"></i><span> Login </span></Link>
                     </span>
                 </div>
             </nav>
