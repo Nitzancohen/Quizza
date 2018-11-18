@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-import BoxTest from './boxTest'
+import BoxTest from './BoxTest'
 
 @inject('store')
 @observer
