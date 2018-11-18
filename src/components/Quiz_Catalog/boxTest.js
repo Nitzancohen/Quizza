@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-import Quiz from '../Quiz/Quiz'
+import PopUp from './popUp'
+import '../../css/tryups/boxesCss.css'
+import '../../css/tryups/boxesCss2.css'
+import ModalExample from './ModalExample';
 
 @inject('store')
 @observer
@@ -13,7 +16,7 @@ class BoxTest extends Component {
                 allQuizzes.map(q => {
                     console.log(q)
                     return (
-                        <button type="button" id="buttonModal1" data-toggle="modal" data-target="#myModal1">
+                        <button type="button" id="buttonModal1" onClick={this.props.store.popUpAction} data-toggle="modal" data-target="#myModal1">
                             <div className="service-item second-service">
                                 <div className="icon"></div>
                                 <div>
@@ -29,7 +32,6 @@ class BoxTest extends Component {
     }
 
     render() {
-
         return (
             <div id="about" className="page-section">
                 <div className="container">
@@ -44,27 +46,8 @@ class BoxTest extends Component {
                     <div className="row">
                         <div className="col-md-3 col-sm-6 col-xs-12">
                             {this.quizzes()}
-
-                            <div className="modal fade" id="myModal1" role="dialog">
-                                <div className="modal-dialog">
-                                    <div className="modal-content">
-                                        <div className="modal-header">
-                                            <button type="button" className="close" data-dismiss="modal">&times;</button>
-                                            <h4 className="modal-title" > add a new quiz </h4>
-                                        </div>
-                                        <div className="modal-body">
-                                            <div className="container">
-                                                <p>hello there</p>
-                                                <Quiz />
-                                            </div>
-                                        </div>
-                                        <div className="modal-footer">
-                                            <button type="button" className="btn btn-default" data-dismiss="modal">Close</button>
-                                        </div>
-                                    </div>
-
-                                </div>
-                            </div>
+                            <PopUp /> 
+                            <ModalExample />                          
                         </div>
                     </div>
                 </div>
