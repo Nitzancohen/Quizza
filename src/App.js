@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import QuizzesScreen from './components/Quiz_Catalog/QuizzesScreen';
 import LandingPage from './components/Landing/LandingPage';
 import CreateQuiz from './components/Create/CreateQuizForm'; 
+import SelectPage from './components/Landing/SelectPage';
 
 @inject('store')
 @observer
@@ -19,6 +20,7 @@ class App extends Component {
         <Route path="/" exact render={() => <LandingPage />} />
         <Route path="/home" exact render={() => <QuizzesScreen />} />
         <Route path="/create-quiz" exact render={()=> <CreateQuiz />} />
+        <Route path="/selectpage" exact render={()=> <SelectPage />} />
       </div>
     </Router>
     );
