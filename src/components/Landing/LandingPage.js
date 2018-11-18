@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../../css/landing.css';
 import { observable, action } from "mobx";
 import { observer, inject } from 'mobx-react';
+import { Link } from 'react-router-dom';
 
 @inject('store')
 @observer
@@ -22,7 +23,7 @@ class LandingPage extends Component {
                 <span className="input">
                     <span className="username"> Username:</span> <input className="input-username" type="text" name="userName" onChange={this.inputChange} value={this.userName} placeholder='Username' />
                     <br />
-                    <input className="LoginButton" type="button" onClick={this.login} value="Login" />
+                    <Link to="/selectpage"><input className="LoginButton" type="button" onClick={this.login} value="Login" /></Link>
                     <span></span>
                 </span>
             </div>);
