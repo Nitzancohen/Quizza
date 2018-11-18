@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
+import { Link } from 'react-router-dom';
 import QuizBox from './QuizBox';
 // import BoxTest from './BoxTest';
 
@@ -20,7 +21,7 @@ class QuizzesScreen extends Component {
                     {quizzes ? quizzes.map((q, i) => <QuizBox key={q._id} index={i} quiz={q} />) : null}
                 </div>
                 <br></br>
-                <button type="button" className='addQuiz btn btn-outline-warning'> add a quiz <i className='fas fa-plus'></i> </button>
+                <Link to="/create-quiz"><button type="button" className='addQuiz btn btn-outline-warning'> add a quiz <i className='fas fa-plus'></i> </button></Link>
             </div>
         )
     }

@@ -13,7 +13,7 @@ class BoxTest extends Component {
                 allQuizzes.map(q => {
                     console.log(q)
                     return (
-                        <button type="button" id="buttonModal1" data-toggle="modal" data-target="#myModal1">
+                        <button type="button" key={q._id} id="buttonModal1" data-toggle="modal" data-target="#myModal1">
                             <div className="service-item second-service">
                                 <div className="icon"></div>
                                 <div>
