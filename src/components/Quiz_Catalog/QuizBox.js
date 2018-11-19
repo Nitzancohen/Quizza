@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-import BoxTest from './boxTest'
+import BoxTest from './BoxTest';
 
 @inject('store')
 @observer
@@ -14,7 +14,7 @@ class QuizBox extends Component {
         // <div className='box-link' onClick={this.handleClick}>
         return (
             <div className='box-link'>
-                <BoxTest />
+                <BoxTest  quiz={this.props.quiz}/>
             </div>
         );
     }

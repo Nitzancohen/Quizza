@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import './App.css';
 import NavBar from './components/General/NavBar';
 import { inject, observer } from 'mobx-react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import QuizzesScreen from './components/Quiz_Catalog/QuizzesScreen';
 import LandingPage from './components/Landing/LandingPage';
 import CreateQuiz from './components/Create/CreateQuizForm'; 
+import Quiz from './components/Quiz/Quiz';
+import './App.css';
 
 @inject('store')
 @observer
@@ -19,6 +20,7 @@ class App extends Component {
         <Route path="/" exact render={() => <LandingPage />} />
         <Route path="/home" exact render={() => <QuizzesScreen />} />
         <Route path="/create-quiz" exact render={()=> <CreateQuiz />} />
+        <Route exact path="/quiz" render={()=> <Quiz />} />
       </div>
     </Router>
     );

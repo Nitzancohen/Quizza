@@ -32,6 +32,10 @@ class QuizStore {
         console.log(q.data);
     }
 
+    @action saveQuizfinalResults = async ()=> {
+
+        
+    }
 }
 
 const store = new QuizStore();

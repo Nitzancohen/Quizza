@@ -31,7 +31,9 @@ class Quiz extends Component {
     }
 
     componentDidMount() {
-        this.props.store.getCurrentQuizz("5bec8be1b5cd3a3114693f2f")
+        console.log(this.props.id)
+        let quizID = this.props.id
+        this.props.store.getCurrentQuizz(quizID)
     }
 
     showQuiz(quiz) {
