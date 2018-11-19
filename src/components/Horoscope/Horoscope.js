@@ -25,7 +25,7 @@ class Horoscope extends Component {
     showHoroscope = () => {
         return (
             <div className=" all-horoscope">
-                <h1>{this.horoscopeData.sign}</h1>
+                <h1 className="horoscope-title">{this.horoscopeData.sign}</h1>
                 <p>Current Date: {this.horoscopeData.current_date} <br /></p>
                 <p>Compatibility: {this.horoscopeData.compatibility} <br /></p>
                 <p>Lucky Number: {this.horoscopeData.lucky_number} <br /></p>

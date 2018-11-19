@@ -2,6 +2,10 @@ body{
     background-color:plum;
     font-family: 'Handlee', cursive;
 }
+.apps{
+    display: flex;
+    justify-content: space-between;
+}
 h1{
     font-size: 100px;
     text-shadow: 0 1px 0 #ccc,
@@ -21,7 +25,8 @@ h1{
     font-weight: bolder;
     font-family: 'Luckiest Guy', cursive;
     letter-spacing: 7px;
-    margin-top: 100px
+    margin-top: 70px;
+    margin-bottom: 30px;
     
 }
 .opening{
@@ -30,15 +35,15 @@ font-size: 20px;
 .app{
     display: inline-block;
     height: 200px;
-    width: 300px;
+    width: 350px;
     background-color:rgb(163, 94, 163);
-    margin: 30px;
     border-radius: 10px;
     border-color: rgba(252, 252, 252, 0.884);
     border-width: 5px;
     color: rgba(252, 252, 252, 0.884);
     font-weight: bold;
-    padding-top: 30px;
+    padding-top: 20px;
+    padding-left: 20px;
 }
 .header{
 font-size: 20px;
@@ -46,4 +51,19 @@ font-size: 20px;
 }
 .icon{
  font-size: 50px;
+}
+.app:hover{
+   background-color: rgb(182, 178, 178); 
+}
+.describe{
+    display: none;
+    font-size: 15px;
+    text-transform: uppercase;
+    height: 100px;
+    width: 300px; 
+    text-align: center;
+}
+.app:hover .describe{
+    display: block;
+    color: black;
 }
