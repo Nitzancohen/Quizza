@@ -1,12 +1,13 @@
 import React, { Component } from "react";
 import { observer } from "mobx-react";
 import { observable, action } from "mobx";
+import '../../css/horoscope.css';
 
 @observer
 class Horoscope extends Component {
     @observable horoscopeData = null
 
-    @observable userSign = ""
+    @observable userSign = "Aries"
 
     @action changeInput = (e) => this.userSign=e.target.value;
     
@@ -23,38 +24,38 @@ class Horoscope extends Component {
 
     showHoroscope = () => {
         return (
-            <div>
-                <h1>{this.horoscopeData.sign}</h1>
-                Current Date: {this.horoscopeData.current_date} <br />
-                Compatibility: {this.horoscopeData.compatibility} <br />
-                Lucky Number: {this.horoscopeData.lucky_number} <br />
-                Lucky Time: {this.horoscopeData.lucky_time} <br />
-                Color: {this.horoscopeData.color} <br />
-                Date Range: {this.horoscopeData.date_range} <br />
-                Mood: {this.horoscopeData.mood} <br />
-                Description: {this.horoscopeData.description} <br />
+            <div className=" all-horoscope">
+                <h1 className="horoscope-title">{this.horoscopeData.sign}</h1>
+                <p>Current Date: {this.horoscopeData.current_date} <br /></p>
+                <p>Compatibility: {this.horoscopeData.compatibility} <br /></p>
+                <p>Lucky Number: {this.horoscopeData.lucky_number} <br /></p>
+                <p>Lucky Time: {this.horoscopeData.lucky_time} <br /></p>
+                <p>Color: {this.horoscopeData.color} <br /></p>
+                <p>Date Range: {this.horoscopeData.date_range} <br /></p>
+                <p>Mood: {this.horoscopeData.mood} <br /></p>
+                <p>Description: {this.horoscopeData.description} <br /></p>
             </div>
         );
     }
 
     render() {
         return (
-            <div>
-                <select value={this.userSign} onChange={this.changeInput}>
-                    <option>Aries</option>
-                    <option>Taurus</option>
-                    <option>Gemini</option>
-                    <option>Cancer</option>
-                    <option>Leo</option>
-                    <option>Virgo</option>
-                    <option>Libra</option>
-                    <option>Scorpio</option>
-                    <option>Sagittarius</option>
-                    <option>Capricorn</option>
-                    <option>Aquarius</option>
-                    <option>Pisces</option>
+            <div className="dropdown">
+                <select  className="btn btn-secondary dropdown-toggle select-button" value={this.userSign} onChange={this.changeInput}>
+                    <option className="dropdown-item">Aries</option>
+                    <option className="dropdown-item">Taurus</option>
+                    <option className="dropdown-item">Gemini</option>
+                    <option className="dropdown-item">Cancer</option>
+                    <option className="dropdown-item">Leo</option>
+                    <option className="dropdown-item">Virgo</option>
+                    <option className="dropdown-item">Libra</option>
+                    <option className="dropdown-item">Scorpio</option>
+                    <option className="dropdown-item">Sagittarius</option>
+                    <option className="dropdown-item">Capricorn</option>
+                    <option className="dropdown-item">Aquarius</option>
+                    <option className="dropdown-item">Pisces</option>
                 </select>
-                <input type='button' value='get my horoscope!' onClick={this.getMyHoroscope}/>
+                <input className="btn btn-secondary dropdown-toggle horoscop-button" type='button' value='get my horoscope!' onClick={this.getMyHoroscope}/>
                 {this.horoscopeData ? this.showHoroscope() : null}
             </div>
         );
