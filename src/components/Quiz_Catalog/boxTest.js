@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
 import { Link } from "react-router-dom";
-import Quiz from '../Quiz/Quiz'
+import Quiz from '../Quiz/Quiz';
 
 @inject('store')
 @observer
@@ -32,7 +32,6 @@ class BoxTest extends Component {
     }
 
     startQuiz = ()=> {
-        console.log(this.props.quiz._id)
         return <Quiz  id={this.props.quiz._id}/>
     }
 
@@ -71,7 +70,7 @@ class BoxTest extends Component {
 export default BoxTest;
 
 //modal:
-{/* <div className="modal fade" id="myModal1" role="dialog">
+/*<div className="modal fade" id="myModal1" role="dialog">
     <div className="modal-dialog">
         <div className="modal-content">
             <div className="modal-header">
@@ -88,4 +87,4 @@ export default BoxTest;
             </div>
         </div>
     </div>
-</div> */}
+</div>*/
