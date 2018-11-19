@@ -18,6 +18,7 @@ class LandingPage extends Component {
             await this.props.store.addUser(this.userName)
             this.redirect = true;
         }
+        else alert("Please enter a username :)")
     }
 
     render() {

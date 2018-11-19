@@ -6,7 +6,6 @@ import QuizzesScreen from './components/Quiz_Catalog/QuizzesScreen';
 import LandingPage from './components/Landing/LandingPage';
 import HomePage from './components/Landing/HomePage';
 import CreateQuiz from './components/Create/CreateQuizForm';
-import Quiz from './components/Quiz/Quiz';
 import './App.css';
 import Horoscope from './components/Horoscope/Horoscope';
 import Cloud from './components/Cloud/Cloud';
@@ -14,12 +13,18 @@ import Cloud from './components/Cloud/Cloud';
 @inject('store')
 @observer
 class App extends Component {
-
+  navbarHide = () => {
+    const hide = this.props.store.hide
+    if (hide) return null
+    return (
+      <NavBar />
+    )
+  }
   render() {
     return (
     <Router>
       <div className="App">
-        <NavBar />
+      {this.navbarHide()}
         <Route path="/" exact render={() => <LandingPage />} />
         <Route path="/quiz" exact render={() => <QuizzesScreen />} />
         <Route path="/create-quiz" exact render={()=> <CreateQuiz />} />
