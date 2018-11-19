@@ -17,7 +17,7 @@ class Charts extends Component {
                 title: 'Results Acquisition',
                 // url: apiUtils.CHARTS_ACQUISITION,
                 chartType: 'pie',
-                colors: ['#34495e', '#95a5a6', '#795548'],
+                colors: ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'],
                 pieDataKey: 'results',
                 pieNameKey: 'quiz'
             }
