@@ -5,6 +5,7 @@ import { observable, action } from "mobx";
 @inject("store")
 @observer
 class Answers extends Component {
+
     @observable answer = 0
 
     @action changeAnswer = (e) => {
@@ -18,9 +19,9 @@ class Answers extends Component {
             <div className="answers">
                 {answers.map((answer) => {
                     return (
-                        <div className="answer">
+                        <div className="answer" key={answer._id}>
                             <input type="radio" name="answer" id={answer.score} key={answer.score} value={answer.text} onChange={this.changeAnswer} />
-                            <label for={answer.score}>{answer.text}</label>
+                            <label htmlFor={answer.score}>{answer.text}</label>
                         </div>
                     )
                 })}
