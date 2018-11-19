@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { observer, inject } from 'mobx-react';
+import axios from 'axios';
 // import apiUtils from '../../utils/apiUtils';
 import MyLoader from '../General/MyLoader';
 import PieCharts from './charts/PieCharts';
@@ -12,11 +13,15 @@ class Chart extends Component {
     @observable loaded = false;
 
     getData = async () => {
-        // const url = `${apiUtils.SERVER_URL}${apiUtils.ANALYTICS_BASE}${this.props.url}`;
-        // const data = await apiUtils.getData(url);
-        // this.data = data;
-        // this.loaded = true;
+        let quizID = this.props.store.quiz._id;
+        let users = await axios.get('http://localhost:8080/user/quizzes/' + quizID)
+        this.data = this.sortResults(users.data);
+        this.loaded = true;
     };
+
+    sortResults = (users) => {
+        
+    }
 
     componentDidMount = () => {
         this.getData();

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Charts from './Charts';
-// import '../../css/analytics';
+import '../../css/analytics.css';
 
 class Analytics extends Component {
 
@@ -13,4 +13,4 @@ class Analytics extends Component {
     }
 }
 
-export default Analytics;
+export default Analytics;   
