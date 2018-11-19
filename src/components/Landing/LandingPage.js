@@ -23,7 +23,7 @@ class LandingPage extends Component {
 
     render() {
         if (this.redirect) {
-            return <Redirect push to="/selectpage" />;
+            return <Redirect push to="/home" />;
         }
         return (
             <div className="container">

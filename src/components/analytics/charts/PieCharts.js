@@ -7,22 +7,21 @@ import { ResponsiveContainer, Tooltip, Legend, PieChart, Pie, Cell } from 'recha
 class PieCharts extends Component {
     render() {
         return (
-            <ResponsiveContainer width="100%" height="100%">
-                <PieChart>
-                    <Tooltip />
-                    <Legend />
-                    <Pie
-                        data={this.props.store.userResults}
-                        dataKey={this.props.pieDataKey}
-                        nameKey={this.props.pieNameKey}
-                        label
-                    >
-                        {this.props.data.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={this.props.colors[index]} />
-                        ))}
-                    </Pie>
-                </PieChart>
-            </ResponsiveContainer>
+            <PieChart width={800} height={400} onMouseEnter={this.onPieEnter}>
+                <Tooltip />
+                <Pie
+                    data={this.props.data}
+                    cx={120}
+                    cy={200}
+                    innerRadius={60}
+                    outerRadius={80}
+                    fill="#8884d8"
+                    paddingAngle={5}
+                    label
+                >
+                    {this.props.data.map((entry, index) => <Cell fill={this.props.colors[index % this.props.colors.length]} />)}
+                </Pie>
+            </PieChart>
         );
     }
 }

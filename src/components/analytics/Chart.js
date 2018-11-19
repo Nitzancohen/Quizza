@@ -21,18 +21,18 @@ class Chart extends Component {
 
     sortResults = (users) => {
         this.data = [
-            { title: '', count: 0 },
-            { title: '', count: 0 },
-            { title: '', count: 0 },
-            { title: '', count: 0 }
+            { name: '', value: 1 },
+            { name: '', value: 1 },
+            { name: '', value: 1 },
+            { name: '', value: 1 }
         ]
-        
+
         let results = this.props.store.quiz.results
-        results.map((r, i) => this.data[i].title = r.title)
-        
+        results.map((r, i) => this.data[i].name = r.title)
+
         for (let user of users) {
             let score = user.quizzes.filter(quiz => quiz.qID === this.props.store.quiz._id)[0].score
-            this.data[score - 1].count++
+            this.data[score - 1].value++
         }
     }
 
@@ -40,24 +40,15 @@ class Chart extends Component {
         this.getData();
     };
 
-    // *
-    // * Generate different charts according to chartType prop
-    // *
     getChart = () => {
-        let chart = null;
         switch (this.props.chartType) {
             case 'pie':
-                chart = (<PieCharts
-                    data={this.data}
-                    pieDataKey={this.props.pieDataKey}
-                    pieNameKey={this.props.pieNameKey}
-                    colors={this.props.colors}
-                />);
-                break;
+                return (
+                    <PieCharts data={this.data} colors={this.props.colors} />
+                );
             default:
                 console.error('Invalid chartType prop');
         }
-        return chart;
     };
 
 
@@ -65,7 +56,7 @@ class Chart extends Component {
         return (
             <MyLoader loaded={this.loaded} wrapperClass="chart-item">
                 <p> {this.props.title} </p>
-                {this.getChart()}
+                {this.data ? this.getChart() : null}
             </MyLoader>
         );
     }
