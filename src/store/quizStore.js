@@ -32,6 +32,13 @@ class QuizStore {
         console.log(q.data);
     }
 
+    @action saveUserResults = async (score) => {
+        let userQuiz = { qID: this.quiz._id, score: score }
+        let user = await axios.post('http://localhost:8080/user/addQuiz/' + this.user._id, userQuiz)
+        console.log(user.data);
+        this.user = user.data;
+    }
+
 }
 
 const store = new QuizStore();

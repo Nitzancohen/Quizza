@@ -27,7 +27,9 @@ class Quiz extends Component {
     }
 
     getResult = () => {
-        return this.props.store.quiz.results[this.finalResult-1]
+        let result = this.props.store.quiz.results[this.finalResult-1]
+        this.props.store.saveUserResults(result.score)
+        return result;
     }
 
     componentDidMount() {
