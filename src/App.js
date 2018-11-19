@@ -6,7 +6,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import QuizzesScreen from './components/Quiz_Catalog/QuizzesScreen';
 import LandingPage from './components/Landing/LandingPage';
 import CreateQuiz from './components/Create/CreateQuizForm'; 
-import SelectPage from './components/Landing/SelectPage';
+import HomePage from './components/Landing/HomePage';
 import Horoscope from './components/Horoscope/Horoscope';
 import Cloud from './components/Cloud/Cloud';
 
@@ -20,9 +20,9 @@ class App extends Component {
       <div className="App">
         <NavBar />
         <Route path="/" exact render={() => <LandingPage />} />
-        <Route path="/home" exact render={() => <QuizzesScreen />} />
+        <Route path="/quiz" exact render={() => <QuizzesScreen />} />
         <Route path="/create-quiz" exact render={()=> <CreateQuiz />} />
-        <Route path="/selectpage" exact render={()=> <SelectPage />} />
+        <Route path="/home" exact render={()=> <HomePage />} />
         <Route path="/horoscope" exact render={()=> <Horoscope />} />
         <Route path="/cloud" exact render={()=> <Cloud />} />
       </div>
