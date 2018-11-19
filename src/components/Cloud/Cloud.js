@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import WordCloud from 'wordcloud';
-import './Cloud.css';
+
 
 class Cloud extends Component {
 
