@@ -5,6 +5,11 @@ class QuizStore {
     @observable user = null;
     @observable quizzes = null;
     @observable quiz = null;
+    // 
+    @observable isLoading = true;
+
+    // TODO - userResults
+    // @observable userResults = null;
 
     @action addUser = async (userName) => {
         const newUser = await axios.get('http://localhost:8080/user/' + userName);
