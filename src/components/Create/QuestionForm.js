@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { observable } from "mobx";
 import { observer } from "mobx-react";
-// import '../../css/questionForm';
+import '../../css/createQuizForm.css';
 
 @observer
 class QuestionForm extends Component {
@@ -25,12 +25,12 @@ class QuestionForm extends Component {
     showNewQuestionSection = () => {
         return (
             <div>
-                <input type="text" placeholder="Question" name="text" value={this.currentQuestion.text} onChange={this.inputChange} /> <br />
-                <input type="text" placeholder="Answer 1" name="answer1" value={this.currentQuestion.answer1} onChange={this.inputChange} /> <br />
-                <input type="text" placeholder="Answer 2" name="answer2" value={this.currentQuestion.answer2} onChange={this.inputChange} /> <br />
-                <input type="text" placeholder="Answer 3" name="answer3" value={this.currentQuestion.answer3} onChange={this.inputChange} /> <br />
-                <input type="text" placeholder="Answer 4" name="answer4" value={this.currentQuestion.answer4} onChange={this.inputChange} /> <br />
-                <input type="button" value="+" onClick={this.addQuestion} />
+                <input className="input-question" type="text" placeholder="Question" name="text" value={this.currentQuestion.text} onChange={this.inputChange} /> <br />
+                <input className="input-question" type="text" placeholder="Answer 1" name="answer1" value={this.currentQuestion.answer1} onChange={this.inputChange} /> <br />
+                <input className="input-question" type="text" placeholder="Answer 2" name="answer2" value={this.currentQuestion.answer2} onChange={this.inputChange} /> <br />
+                <input className="input-question" type="text" placeholder="Answer 3" name="answer3" value={this.currentQuestion.answer3} onChange={this.inputChange} /> <br />
+                <input className="input-question" type="text" placeholder="Answer 4" name="answer4" value={this.currentQuestion.answer4} onChange={this.inputChange} /> <br />
+                <input className="plus" type="button" value="+" onClick={this.addQuestion} />
             </div>
         )
     }
@@ -81,10 +81,10 @@ class QuestionForm extends Component {
     render() {
         return (
             <div className="question-form">
-                <h4>Enter questions and answers</h4>
+                <h4 className="result-title">Enter questions and answers</h4>
                 <p>(please note that answer #1 must always fit result type #1 and so on)</p>
                 {this.createNewQuestion()}
-                <input type="button" value="save questions" onClick={this.saveQuestions} />
+                <input className="save-button" type="button" value="save questions" onClick={this.saveQuestions} />
             </div>
         )
     }
