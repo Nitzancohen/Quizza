@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Analytics from '../analytics/Analytics';
 
 class Result extends Component {
     render() {
@@ -7,6 +8,7 @@ class Result extends Component {
             <div>
                 <h5>{result.title}</h5>
                 <p>{result.desc}</p>
+                <Analytics />
             </div>
         );
     }
