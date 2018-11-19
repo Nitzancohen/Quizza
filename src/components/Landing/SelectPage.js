@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../../css/selectpage.css';
+import { Link } from 'react-router-dom';
 
 class SelectPage extends Component {
 
@@ -12,17 +13,17 @@ class SelectPage extends Component {
              </p>
                 <div className="apps">
                     <div className="app quiz">
-                    <hi className="header">TEST YOURSELF</hi><br /><br />
+                    <h2 className="header">TEST YOURSELF</h2><br />
                         <span className="icon"><i className="fas fa-question"></i></span>
                     </div>
                     <div className="app cloud">
-                    <hi className="header">CLOUD GAME</hi><br /><br />
+                    <h2 className="header">CLOUD GAME</h2><br />
                     <span className="icon"><i className="fas fa-cloud"></i></span>
                     </div>
-                    <div className="app horoscope">
-                    <hi className="header">WHAT YOUR HOROSCOPE?</hi><br /><br />
+                    <Link to="/horoscope"><div className="app horoscope">
+                    <h2 className="header">WHAT YOUR HOROSCOPE?</h2><br />
                     <span className="icon"><i className="far fa-star"></i></span>
-                    </div>
+                    </div></Link>
                 </div>
             </div>);
     }

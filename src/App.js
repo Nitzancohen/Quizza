@@ -7,6 +7,8 @@ import QuizzesScreen from './components/Quiz_Catalog/QuizzesScreen';
 import LandingPage from './components/Landing/LandingPage';
 import CreateQuiz from './components/Create/CreateQuizForm'; 
 import SelectPage from './components/Landing/SelectPage';
+import Horoscope from './components/Horoscope/Horoscope';
+import Cloud from './components/Cloud/Cloud';
 
 @inject('store')
 @observer
@@ -21,6 +23,8 @@ class App extends Component {
         <Route path="/home" exact render={() => <QuizzesScreen />} />
         <Route path="/create-quiz" exact render={()=> <CreateQuiz />} />
         <Route path="/selectpage" exact render={()=> <SelectPage />} />
+        <Route path="/horoscope" exact render={()=> <Horoscope />} />
+        <Route path="/cloud" exact render={()=> <Cloud />} />
       </div>
     </Router>
     );
