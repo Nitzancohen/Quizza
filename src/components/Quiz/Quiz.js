@@ -14,7 +14,7 @@ class Quiz extends Component {
 
     @action addAnswer = (answer) => this.userAnswers.push(answer)
 
-    @action calcFinalResult = () => {
+    @action calcFinalResult = async () => {
         let greatestOccurring = { val: this.userAnswers[0], occ: 0 };
 
         for (let i = 0; i < this.userAnswers.length; i++) {
@@ -24,13 +24,11 @@ class Quiz extends Component {
         }
 
         this.finalResult = greatestOccurring.val;
+        let result = this.props.store.quiz.results[this.finalResult-1]
+        await this.props.store.saveUserResults(result.score)
     }
 
-    getResult = () => {
-        let result = this.props.store.quiz.results[this.finalResult-1]
-        this.props.store.saveUserResults(result.score)
-        return result;
-    }
+    getResult = () => this.props.store.quiz.results[this.finalResult-1]
 
     componentDidMount() {
         let quizID = this.props.id
