@@ -27,11 +27,10 @@ class Quiz extends Component {
     }
 
     getResult = () => {
-        return this.props.store.quiz.results[this.finalResult-1]
+        return this.props.store.quiz.results[this.finalResult - 1]
     }
 
     componentDidMount() {
-        console.log(this.props.id)
         let quizID = this.props.id
         this.props.store.getCurrentQuizz(quizID)
     }
@@ -41,7 +40,7 @@ class Quiz extends Component {
             <div className="quiz">
                 <h3>{quiz.title}</h3>
                 <br />
-                {this.finalResult ? <Result result={this.getResult}/> : <Questions addAnswer={this.addAnswer} endQuiz={this.calcFinalResult}/> }
+                {this.finalResult ? <Result result={this.getResult} /> : <Questions addAnswer={this.addAnswer} endQuiz={this.calcFinalResult} />}
             </div>
         )
     }

@@ -6,15 +6,10 @@ import BoxTest from './BoxTest';
 @observer
 class QuizBox extends Component {
 
-    // handleClick = () => {
-    //     this.props.store.getCurrentQuizz(this.props.quiz._id)
-    // };
-
     render() {
-        // <div className='box-link' onClick={this.handleClick}>
         return (
             <div className='box-link'>
-                <BoxTest  quiz={this.props.quiz}/>
+                <BoxTest selectQuiz={this.props.selectQuiz} quiz={this.props.quiz} />
             </div>
         );
     }
