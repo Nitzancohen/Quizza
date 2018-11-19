@@ -9,18 +9,31 @@ import { observable } from 'mobx';
 @inject('store')
 @observer
 class Chart extends Component {
-    @observable data = [];
+    @observable data = null;
     @observable loaded = false;
 
     getData = async () => {
         let quizID = this.props.store.quiz._id;
         let users = await axios.get('http://localhost:8080/user/quizzes/' + quizID)
-        this.data = this.sortResults(users.data);
+        this.sortResults(users.data);
         this.loaded = true;
     };
 
     sortResults = (users) => {
+        this.data = [
+            { title: '', count: 0 },
+            { title: '', count: 0 },
+            { title: '', count: 0 },
+            { title: '', count: 0 }
+        ]
         
+        let results = this.props.store.quiz.results
+        results.map((r, i) => this.data[i].title = r.title)
+        
+        for (let user of users) {
+            let score = user.quizzes.filter(quiz => quiz.qID === this.props.store.quiz._id)[0].score
+            this.data[score - 1].count++
+        }
     }
 
     componentDidMount = () => {
