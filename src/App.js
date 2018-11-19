@@ -6,7 +6,7 @@ import QuizzesScreen from './components/Quiz_Catalog/QuizzesScreen';
 import LandingPage from './components/Landing/LandingPage';
 import HomePage from './components/Landing/HomePage';
 import CreateQuiz from './components/Create/CreateQuizForm';
-import Quiz from './components/Quiz/Quiz';
+// import Quiz from './components/Quiz/Quiz';
 import './App.css';
 import Horoscope from './components/Horoscope/Horoscope';
 import Cloud from './components/Cloud/Cloud';

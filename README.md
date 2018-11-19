@@ -1,3 +1,12 @@
+# TODO - hackathon #2
+* add analytics and connecting with data 
+* working on flow
+* features
+* modal \ popup??
+* users?
+* more analytics, bars, charts and so on...
+* TEMPLATE / THEME!
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts

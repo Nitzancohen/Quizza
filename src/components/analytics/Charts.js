@@ -38,7 +38,6 @@ class Charts extends Component {
                         color={c.color}
                         colors={c.colors}
                         layout={c.layout}
-
                         pieDataKey={c.pieDataKey}
                         pieNameKey={c.pieNameKey}
                     />
