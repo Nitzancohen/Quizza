@@ -1,3 +1,48 @@
 .create-form {
-    border: solid;
+    font-weight: bolder;
+    height: 1200px;
+    width: 600px;
+    background-color: rgba(192, 9, 248, 0.747);
+    color: rgb(250, 250, 250);
+    margin-left: 28%;
 }
+.creat-title{
+    font-size: 50px;
+    font-family: 'Luckiest Guy', cursive;
+    color: rgb(253, 253, 253);
+}
+.result-box{
+    height: 130px;
+    width: 200px;
+    margin: 25px;
+    display: inline-block;
+    font-size: 15px;
+    background-color: rgba(247, 1, 255, 0.63);
+    border-radius: 10px;
+}
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+    font-size: 15px;
+   }
+   .save-button{
+       background-color: rgba(251, 253, 255, 0.733);
+       color:rgb(160, 1, 160);
+       height: 40px;
+       width: 150px;
+       font-size: 20px;
+       border-radius: 10px;
+   }
+   .plus{
+    background-color: rgba(251, 253, 255, 0.733);
+    color:rgb(160, 1, 160);
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+    border-radius: 10px;   
+   }
+   .input-question{
+height: 30px;
+width: 300px;
+margin: 5px;
+   }

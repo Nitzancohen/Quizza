@@ -13,12 +13,18 @@ import Cloud from './components/Cloud/Cloud';
 @inject('store')
 @observer
 class App extends Component {
-
+  navbarHide = () => {
+    const hide = this.props.store.hide
+    if (hide) return null
+    return (
+      <NavBar />
+    )
+  }
   render() {
     return (
     <Router>
       <div className="App">
-        <NavBar />
+      {this.navbarHide()}
         <Route path="/" exact render={() => <LandingPage />} />
         <Route path="/quiz" exact render={() => <QuizzesScreen />} />
         <Route path="/create-quiz" exact render={()=> <CreateQuiz />} />

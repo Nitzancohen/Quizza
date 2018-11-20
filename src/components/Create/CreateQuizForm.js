@@ -23,9 +23,9 @@ class CreateForm extends Component {
 
     saveQuiz = () => {
         if ((this.formInputs.title)
-        && (this.formInputs.description)
-        && (this.quizQuestions)
-        && (this.quizResults)) {
+            && (this.formInputs.description)
+            && (this.quizQuestions)
+            && (this.quizResults)) {
             const header = this.formInputs
             const questions = this.quizQuestions
             const results = this.quizResults
@@ -36,17 +36,22 @@ class CreateForm extends Component {
     render() {
         return (
             <div className="create-form">
-                <h2>Create your own Quiz!</h2>
+                <h2 className="creat-title">Create your own Quiz!</h2>
                 <div>
-                    Title: <input type="text" name="title" onChange={this.inputChange} placeholder="title" />
+                    <h3>Title:</h3>
+                    <br />
+                    <input type="text" name="title" onChange={this.inputChange} placeholder="title" />
+                    <br />
                 </div>
                 <div>
-                    Description:
+                    <h3> Description:</h3>
+                    <br />
                     <textarea name="description" onChange={this.inputChange} rows="4" cols="40" placeholder="describe your quiz..." />
+                    <br/>
                 </div>
                 <ResultsForm saveResults={this.saveResults} />
                 <QuestionForm saveQuestions={this.saveQuestions} />
-                <input type="button" value="CREATE QUIZ!!" onClick={this.saveQuiz} />
+                <input className="save-button" type="button" value="CREATE QUIZ!!" onClick={this.saveQuiz} />
             </div>
         )
     }

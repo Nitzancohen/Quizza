@@ -13,7 +13,7 @@ class NavBar extends Component {
                     </span>
                     <span className="rightnavbar">
                         <Link to="/home" className='navLinks'><i className="fas fa-home"></i><span> Home </span></Link>
-                        <Link to="/" className='navLinks'><i className="fas fa-sign-in-alt"></i><span> Login </span></Link>
+                        <Link to="/" className='navLinks'><i className="fas fa-sign-in-alt"></i><span> Logout </span></Link>
                     </span>
                 </div>
             </nav>

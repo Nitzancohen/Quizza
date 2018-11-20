@@ -13,14 +13,10 @@ router.get('/user/:name', function (req, res) {
     })
 })
 
-router.get('/user/addQuiz/:userId', function (req, res) {
-    // let quiz = { qID: "5bf0015e7b578529fcae6d99", score: 1 }
-    User.findByIdAndUpdate(req.params.userId, { "$push": { "quizzes": req.body } }, { new: true }, (err, result) => {
+router.post('/user/addQuiz/:userId', function (req, res) {
+    User.findOneAndUpdate({ _id: req.params.userId }, { "$push": { "quizzes": req.body } }, { new: true }, (err, result) => {
         if (err) res.status(500).send(err);
-        else {
-            console.log(result)
-            res.send(result);
-        }
+        else res.send(result);
     })
 })
 
@@ -29,10 +25,7 @@ router.get('/user/quizzes/:quizId', function (req, res) {
         if (err) {
             res.status(500).send(err);
         }
-        else {
-            console.log(result)
-            res.send(result);
-        }
+        else res.send(result);
     })
 })
 
