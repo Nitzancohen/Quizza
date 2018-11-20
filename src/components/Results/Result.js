@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Analytics from '../analytics/Analytics';
+import '../../css/resultsForm.css'
 
 class Result extends Component {
     

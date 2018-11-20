@@ -48,3 +48,9 @@ padding-bottom: 5px;
     color: rgba(255, 254, 254, 0.74);
 }
 
+#username {
+    float: left;
+    color: white;
+    margin: 12px 25px;
+    font-size: 20px;
+}

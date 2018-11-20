@@ -14,12 +14,10 @@ import Cloud from './components/Cloud/Cloud';
 @observer
 class App extends Component {
   navbarHide = () => {
-    const hide = this.props.store.hide
-    if (hide) return null
-    return (
-      <NavBar />
-    )
+    if(this.props.store.user) return <NavBar />
+    return null;
   }
+  
   render() {
     return (
     <Router>

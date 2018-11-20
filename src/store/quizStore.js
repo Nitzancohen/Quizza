@@ -2,16 +2,20 @@ import { observable, action } from 'mobx';
 import axios from 'axios';
 
 class QuizStore {
-    @observable user = null;
+    @observable user = JSON.parse(localStorage.getItem('user')) || null;
     @observable quizzes = null;
     @observable quiz = null;
-    @observable hide = true;
     @observable isLoading = true;
 
     @action addUser = async (userName) => {
         const newUser = await axios.get('http://localhost:8080/user/' + userName);
         this.user = newUser.data;
-        this.hide = false
+        localStorage.setItem('user', JSON.stringify(this.user));
+    }
+
+    @action logout = () => {
+        this.user = null;
+        localStorage.setItem('user', JSON.stringify(null))
     }
 
     @action getQuizzes = async ()=> {
