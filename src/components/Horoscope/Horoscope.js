@@ -27,21 +27,22 @@ class Horoscope extends Component {
             <div className=" all-horoscope">
                 <h1 className="horoscope-title">{this.horoscopeData.sign}</h1>
                 <p>Current Date: {this.horoscopeData.current_date} <br /></p>
+                <p>Date Range: {this.horoscopeData.date_range} <br /></p>
                 <p>Compatibility: {this.horoscopeData.compatibility} <br /></p>
                 <p>Lucky Number: {this.horoscopeData.lucky_number} <br /></p>
-                <p>Lucky Time: {this.horoscopeData.lucky_time} <br /></p>
                 <p>Color: {this.horoscopeData.color} <br /></p>
-                <p>Date Range: {this.horoscopeData.date_range} <br /></p>
-                <p>Mood: {this.horoscopeData.mood} <br /></p>
-                <p>Description: {this.horoscopeData.description} <br /></p>
+                <p>Mood: {this.horoscopeData.mood} <br /><br /></p>
+                <p>Daily Horoscope: {this.horoscopeData.description} <br /></p>
             </div>
         );
     }
 
     render() {
-        return (
+        return (<div>
+            <h1 id="horoscope-title">Get my horoscope</h1>
+            <p>Select your fortune from the list and get your horoscope for today!</p>
             <div className="dropdown">
-                <select  className="btn btn-secondary dropdown-toggle select-button" value={this.userSign} onChange={this.changeInput}>
+                <select  className="btn btn-secondary dropdown-toggle select-button list" value={this.userSign} onChange={this.changeInput}>
                     <option className="dropdown-item">Aries</option>
                     <option className="dropdown-item">Taurus</option>
                     <option className="dropdown-item">Gemini</option>
@@ -57,6 +58,7 @@ class Horoscope extends Component {
                 </select>
                 <input className="btn btn-secondary dropdown-toggle horoscop-button" type='button' value='get my horoscope!' onClick={this.getMyHoroscope}/>
                 {this.horoscopeData ? this.showHoroscope() : null}
+            </div>
             </div>
         );
     }
