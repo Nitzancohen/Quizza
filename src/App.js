@@ -9,6 +9,7 @@ import CreateQuiz from './components/Create/CreateQuizForm';
 import './App.css';
 import Horoscope from './components/Horoscope/Horoscope';
 import Cloud from './components/Cloud/Cloud';
+import Quiz from './components/Quiz/Quiz';
 
 @inject('store')
 @observer
@@ -29,6 +30,7 @@ class App extends Component {
         <Route path="/home" exact render={()=> <HomePage />} />
         <Route path="/horoscope" exact render={()=> <Horoscope />} />
         <Route path="/cloud" exact render={()=> <Cloud />} />
+        <Route exact path="/quiz/:id" render={({ match }) => <Quiz match={match} />} />
       </div>
     </Router>
     );

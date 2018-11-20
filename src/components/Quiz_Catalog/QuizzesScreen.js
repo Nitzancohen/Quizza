@@ -5,11 +5,12 @@ import QuizBox from './QuizBox';
 import { observable, action } from "mobx";
 import Quiz from '../Quiz/Quiz'
 import '../../css/QuizScreen.css';
+import { Redirect } from 'react-router';
 
 @inject('store')
 @observer
 class QuizzesScreen extends Component {
-
+    @observable redirect = false;
     @observable selectedQuiz = null;
 
     componentDidMount = () => {
@@ -18,11 +19,14 @@ class QuizzesScreen extends Component {
 
     @action selectQuiz = (quizId) => {
         this.selectedQuiz = quizId;
+        this.redirect = true;
     }
 
     render() {
         const quizzes = this.props.store.quizzes
-        if (!this.selectedQuiz)
+        if (this.redirect) {
+            return <Redirect push to={`/quiz/${this.selectedQuiz}`} />;
+        }
             return (
                 <div>
                     <h4 className="title-quizzes"> Our Quizzes </h4>
@@ -33,7 +37,6 @@ class QuizzesScreen extends Component {
                     <Link to="/create-quiz"><button type="button" className='addQuiz btn btn-secondary '> <i className='fas fa-plus'></i> add a quiz  </button></Link>
                 </div>
             )
-        else return <Quiz id={this.selectedQuiz} />
     }
 }
 export default QuizzesScreen;

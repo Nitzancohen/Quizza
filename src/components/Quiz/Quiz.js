@@ -4,6 +4,7 @@ import { observable, action } from "mobx";
 import Questions from './Questions';
 import Result from '../Results/Result';
 import '../../css/quiz.css';
+import { Link } from 'react-router-dom';
 
 @inject('store')
 @observer
@@ -24,21 +25,21 @@ class Quiz extends Component {
         }
 
         this.finalResult = greatestOccurring.val;
-        let result = this.props.store.quiz.results[this.finalResult-1]
+        let result = this.props.store.quiz.results[this.finalResult - 1]
         await this.props.store.saveUserResults(result.score)
     }
 
-    getResult = () => this.props.store.quiz.results[this.finalResult-1]
+    getResult = () => this.props.store.quiz.results[this.finalResult - 1]
 
     componentDidMount() {
-        let quizID = this.props.id
+        let quizID = this.props.match.params.id
         this.props.store.getCurrentQuizz(quizID)
     }
 
     showQuiz(quiz) {
         return (
             <div className="quiz">
-                <h3 className='quizResultTitle'>{quiz.title}</h3>
+                <h3 className='quizResultTitle ' id="quizResultTitle">{quiz.title}</h3>
                 <br />
                 {this.finalResult ? <Result result={this.getResult} /> : <Questions addAnswer={this.addAnswer} endQuiz={this.calcFinalResult} />}
             </div>
@@ -47,7 +48,11 @@ class Quiz extends Component {
 
     render() {
         const quiz = this.props.store.quiz
-        return quiz ? this.showQuiz(quiz) : null
+        return (<div>
+            <Link to="/quiz"><div className="BackButton"> Back to all quizzes</div></Link>
+            <div> {quiz ? this.showQuiz(quiz) : null}</div>
+        </div>
+        )
     }
 }
 

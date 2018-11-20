@@ -52,3 +52,19 @@ input, textarea{
     color: black;
     font-size: 15px;
 }
+
+.app { transition: all .2s ease-in-out; }
+.app:hover { transform: scale(1.1); }
+.BackButton{
+    text-decoration: none;
+    height: 20px;
+    width: 150px;
+    background-color: rgba(248, 248, 248, 0.801);
+    color: rgb(211, 43, 226);
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+}
+.BackButton:link, .BackButton:hover, .BackButton:visited , .BackButton:active{
+    text-decoration: none;
+}
