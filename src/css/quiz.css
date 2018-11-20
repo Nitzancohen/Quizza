@@ -2,3 +2,10 @@
     background-color: rgb(173, 136, 180);
 }
 
+.quizResultTitle {
+    color: white;
+    font-size: 25px;
+    font-weight: bolder;
+    margin-top: 10px;
+}
+

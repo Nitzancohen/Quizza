@@ -38,7 +38,7 @@ class Quiz extends Component {
     showQuiz(quiz) {
         return (
             <div className="quiz">
-                <h3>{quiz.title}</h3>
+                <h3 className='quizResultTitle'>{quiz.title}</h3>
                 <br />
                 {this.finalResult ? <Result result={this.getResult} /> : <Questions addAnswer={this.addAnswer} endQuiz={this.calcFinalResult} />}
             </div>

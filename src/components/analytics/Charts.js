@@ -7,7 +7,6 @@ import Chart from './Chart';
 @observer
 class Charts extends Component {
 
-    // userResults = this.props.store.userResults // url part?
 
     getCharts = () => {
         // adding something with MOMENT package? adding dates/ months
@@ -15,7 +14,6 @@ class Charts extends Component {
             {
                 id: 'resultsAcquisition',
                 title: 'Results Acquisition',
-                // url: apiUtils.CHARTS_ACQUISITION,
                 chartType: 'pie',
                 colors: ['#0088FE', '#00C49F', '#FFBB28', '#FF8042'],
                 pieDataKey: 'results',

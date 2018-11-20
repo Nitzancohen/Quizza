@@ -5,6 +5,7 @@ import axios from 'axios';
 import MyLoader from '../General/MyLoader';
 import PieCharts from './charts/PieCharts';
 import { observable } from 'mobx';
+import '../../css/analytics.css';
 
 @inject('store')
 @observer
@@ -55,7 +56,8 @@ class Chart extends Component {
     render() {
         return (
             <MyLoader loaded={this.loaded} wrapperClass="chart-item">
-                <p> {this.props.title} </p>
+                <p className='chartName'> {this.props.title} </p><br></br><br></br>
+                <p className='chartDesc'>Just to let you know, other users got the following results:</p>
                 {this.data ? this.getChart() : null}
             </MyLoader>
         );
