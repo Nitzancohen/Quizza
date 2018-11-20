@@ -32,6 +32,7 @@
        width: 150px;
        font-size: 20px;
        border-radius: 10px;
+       margin: 5px;
    }
    .plus{
     background-color: rgba(251, 253, 255, 0.733);
@@ -40,9 +41,14 @@
     width: 40px;
     font-size: 20px;
     border-radius: 10px;   
+    margin: 5px;
    }
    .input-question{
 height: 30px;
 width: 300px;
 margin: 5px;
    }
+input, textarea{
+    color: black;
+    font-size: 15px;
+}

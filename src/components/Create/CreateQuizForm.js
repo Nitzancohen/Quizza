@@ -51,7 +51,7 @@ class CreateForm extends Component {
                 </div>
                 <ResultsForm saveResults={this.saveResults} />
                 <QuestionForm saveQuestions={this.saveQuestions} />
-                <input className="save-button" type="button" value="CREATE QUIZ!!" onClick={this.saveQuiz} />
+                <input className="save-button" type="button" value="CREATE QUIZ!" onClick={this.saveQuiz} />
             </div>
         )
     }
