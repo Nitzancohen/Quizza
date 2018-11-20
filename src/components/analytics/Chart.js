@@ -56,7 +56,7 @@ class Chart extends Component {
     render() {
         return (
             <MyLoader loaded={this.loaded} wrapperClass="chart-item">
-                <p className='chartName'> {this.props.title} </p><br></br><br></br>
+                {/* <p className='chartName'> {this.props.title} </p><br></br><br></br> */}
                 <p className='chartDesc'>Just to let you know, other users got the following results:</p>
                 {this.data ? this.getChart() : null}
             </MyLoader>
