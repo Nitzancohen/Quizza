@@ -27,6 +27,10 @@ app.use(express.static('node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.listen(process.env.PORT || SERVER_PORT, () => {
+    console.log('Server started')
+});
+
 app.get('/*', function (req, res) {
     res.sendFile(path.join(__dirname, './public/index.html'), function (err) {
         if (err) {
@@ -34,7 +38,3 @@ app.get('/*', function (req, res) {
         }
     })
 })
-
-app.listen(process.env.PORT || SERVER_PORT, () => {
-    console.log('Server started')
-});
