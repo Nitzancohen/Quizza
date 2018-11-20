@@ -19,11 +19,11 @@ app.use(function (req, res, next) {
  next();
 });
 
+app.use(express.static('build'));
+app.use(express.static('public'));
 app.use(express.static('node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static('build'));
-app.use(express.static('public'));
 
 app.use(quizApi);
 app.use(userApi);
