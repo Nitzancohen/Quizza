@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { observer, inject } from 'mobx-react';
-import { ResponsiveContainer, Tooltip, Legend, PieChart, Pie, Cell } from 'recharts';
+import {  Tooltip, PieChart, Pie, Cell } from 'recharts';
 
 @inject('store')
 @observer
