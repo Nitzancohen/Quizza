@@ -8,7 +8,7 @@ class QuizStore {
     @observable isLoading = true;
 
     @action addUser = async (userName) => {
-        const newUser = await axios.get('http://localhost:8080/user/' + userName);
+        const newUser = await axios.get('/user/' + userName);
         this.user = newUser.data;
         localStorage.setItem('user', JSON.stringify(this.user));
     }
@@ -19,12 +19,12 @@ class QuizStore {
     }
 
     @action getQuizzes = async ()=> {
-        const allQuizzes = await axios.get('http://localhost:8080/quizzes');
+        const allQuizzes = await axios.get('/quizzes');
         this.quizzes = allQuizzes.data;
     }
 
     @action getCurrentQuizz = async (quizID)=> { 
-        const currentQuizz = await axios.get('http://localhost:8080/quiz/' + quizID);
+        const currentQuizz = await axios.get('/quiz/' + quizID);
         this.quiz = currentQuizz.data;
     }
 
@@ -35,13 +35,13 @@ class QuizStore {
             questions: questions,
             results: results
         }
-        let q = await axios.post('http://localhost:8080/quiz', newQuiz)
+        let q = await axios.post('/quiz', newQuiz)
         console.log(q.data);
     }
     
     @action saveUserResults = async (score) => {
         let userQuiz = { qID: this.quiz._id, score: score }
-        let user = await axios.post('http://localhost:8080/user/addQuiz/' + this.user._id, userQuiz)
+        let user = await axios.post('/user/addQuiz/' + this.user._id, userQuiz)
         this.user = user.data;
     }
 }

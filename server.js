@@ -8,7 +8,7 @@ const userApi = require('./apis/userApi');
 
 const SERVER_PORT = 8080;
 
-mongoose.connect('mongodb://localhost/quizza', () => {
+mongoose.connect(process.env.CONNECTION_STRING || 'mongodb://localhost/quizza', () => {
     console.log('Connection to DB established');
 });
 
@@ -19,14 +19,15 @@ app.use(function (req, res, next) {
  next();
 });
 
-app.use(express.static('public'));
 app.use(express.static('node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(express.static('build'));
+app.use(express.static('public'));
 
 app.use(quizApi);
 app.use(userApi);
 
-app.listen(SERVER_PORT, () => {
-    console.log(`Server started on port ${SERVER_PORT}`)
+app.listen(process.env.PORT || SERVER_PORT, () => {
+    console.log('Server started')
 });
