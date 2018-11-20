@@ -18,21 +18,22 @@ class LandingPage extends Component {
             await this.props.store.addUser(this.userName)
             this.redirect = true;
         }
+        else alert("Please enter a username :)")
     }
 
     render() {
         if (this.redirect) {
-            return <Redirect push to="/selectpage" />;
+            return <Redirect push to="/home" />;
         }
         return (
             <div className="container">
-                <h1>QUIZZA</h1>
-                <span className="input">
-                    <span className="username"> Username:</span> <input className="input-username" type="text" name="userName" onChange={this.inputChange} value={this.userName} placeholder='Username' />
+                <h1 className="first-title">QUIZZA</h1>
+                <div className="input-enter">
+                    <span className="username"> Username:</span> <input className="input-username" type="text" name="userName" onChange={this.inputChange} value={this.userName} />
                     <br />
                     <input className="LoginButton" type="button" onClick={this.login} value="Login" />
                     <span></span>
-                </span>
+                </div>
             </div>
         );
     }

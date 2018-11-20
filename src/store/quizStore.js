@@ -5,15 +5,13 @@ class QuizStore {
     @observable user = null;
     @observable quizzes = null;
     @observable quiz = null;
-    // 
+    @observable hide = true;
     @observable isLoading = true;
-
-    // TODO - userResults
-    // @observable userResults = null;
 
     @action addUser = async (userName) => {
         const newUser = await axios.get('http://localhost:8080/user/' + userName);
         this.user = newUser.data;
+        this.hide = false
     }
 
     @action getQuizzes = async ()=> {
@@ -40,7 +38,6 @@ class QuizStore {
     @action saveUserResults = async (score) => {
         let userQuiz = { qID: this.quiz._id, score: score }
         let user = await axios.post('http://localhost:8080/user/addQuiz/' + this.user._id, userQuiz)
-        console.log(user.data);
         this.user = user.data;
     }
 }

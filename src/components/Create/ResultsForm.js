@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import '../../css/createQuizForm.css';
 
 class ResultsForm extends Component {
     results = { title1: '', desc1: '', title2: '', desc2: '', title3: '', desc3: '', title4: '', desc4: '', }
@@ -27,28 +28,29 @@ class ResultsForm extends Component {
     render() {
         return (
             <div className="results-form">
-                <h4>Enter the final result types</h4>
-                <div>
+                <h4 className="result-title">Enter the final result types:</h4>
+                <div className="result-box result1">
                     <div>1</div>
                     Title: <input type="text" name="title1" placeholder="title" onChange={this.inputChange} /> <br />
                     Description: <input type="text" name="desc1" placeholder="description" onChange={this.inputChange} />
                 </div>
-                <div>
+                <div className="result-box result2">
                     <div>2</div>
                     Title: <input type="text" name="title2" placeholder="title" onChange={this.inputChange} /> <br />
                     Description: <input type="text" name="desc2" placeholder="description" onChange={this.inputChange} />
                 </div>
-                <div>
+                <div className="result-box result3">
                     <div>3</div>
                     Title: <input type="text" name="title3" placeholder="title" onChange={this.inputChange} /> <br />
                     Description: <input type="text" name="desc3" placeholder="description" onChange={this.inputChange} />
                 </div>
-                <div>
+                <div className="result-box result4">
                     <div>4</div>
                     Title: <input type="text" name="title4" placeholder="title" onChange={this.inputChange} /> <br />
                     Description: <input type="text" name="desc4" placeholder="description" onChange={this.inputChange} />
                 </div>
-                <input type="button" value="save results" onClick={this.saveResults} />
+                <br></br>
+                <input className="save-button" type="button" value="save results" onClick={this.saveResults} />
             </div>
         )
     }
