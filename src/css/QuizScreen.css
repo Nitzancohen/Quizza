@@ -13,3 +13,6 @@
 .result-title{
     font-size: 30px;
 }
+.quiz-row{
+    display: flex;
+}
