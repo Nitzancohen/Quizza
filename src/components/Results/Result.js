@@ -3,14 +3,37 @@ import Analytics from '../analytics/Analytics';
 import '../../css/resultsForm.css'
 
 class Result extends Component {
+    
+    resultReady = () => {
+        let result = this.props.result();
+        let tweet = '';
+
+        let titleForTweet = result.title.replace(/<(?:.|\n)*?>/gm, '');
+        let descForTweet = result.desc.replace(/<(?:.|\n)*?>/gm, '');
+
+        tweet = titleForTweet.length + descForTweet.length <= 136 ?
+            encodeURIComponent(titleForTweet + ' - ' + <br /> + descForTweet) :
+            encodeURIComponent('"' + titleForTweet.substring(0, 133 - descForTweet.length) + '..." -' + descForTweet);
+        if (titleForTweet && descForTweet) {
+            return (
+                <div>
+                    <p className="left-align"> {titleForTweet} </p>
+                    <p className="right-align"> {descForTweet} </p>
+                    <a className='blue-grey darken-2 waves-effect waves-light btn twitter-share-button' target="_blank" rel="noopener noreferrer" href={"https://twitter.com/intent/tweet?text=" + tweet}> Tweet this Quote </a>
+                </div>
+            )
+        }
+    }
+
     render() {
-        const result = this.props.result();
+        let result = this.props.result();
         return (
             <div>
-                <h5 className='resultTitle'>{result.title}</h5>
-                <p className='resultDesc'>{result.desc}</p>
+                <h5>{result.title}</h5>
+                <p>{result.desc}</p>
+                {this.resultReady}
                 <Analytics />
-            </div>
+            </div >
         );
     }
 }
