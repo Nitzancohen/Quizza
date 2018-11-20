@@ -1,53 +1,66 @@
 import React, { Component } from 'react';
+import { observer } from "mobx-react";
+import { observable } from "mobx";
 import WordCloud from 'wordcloud';
 
-
+@observer
 class Cloud extends Component {
 
-    db = [
-        {"word": "sad", "size":4},
-        {"word": "happy", "size":5},
-        {"word": "beautiful", "size":6},
-        {"word": "day", "size":7},
-        {"word": "strong", "size":8},
-        {"word": "lovely", "size":8},
-        {"word": "inspired", "size":7},
-        {"word": "believe", "size":6},
-        {"word": "confidence", "size":5},
-        {"word": "success", "size":4},
-        {"word": "dream", "size":4},
-        {"word": "do it", "size":5},
-        {"word": "hard work", "size":6},
-        {"word": "journey", "size":7},
-        {"word": "forward", "size":8},
-        {"word": "future", "size":8},
-        {"word": "world", "size":7},
-        {"word": "no limits", "size":6},
-        {"word": "greater", "size":5},
+    db = [];
+    selectedCategories = [
+        {"word":"Love","size":5},
+        {"word":"Health","size":6},
+        {"word":"Friendship","size":7},
+        {"word":"food","size":8},
+        {"word":"experience","size":9},
+        {"word":"life","size":9},
+        {"word":"travel","size":8},
+        {"word":"sports","size":7},
+        {"word":"romance","size":6},
+        {"word":"funny","size":5},
+        {"word":"fear","size":5},
+        {"word":"respect","size":6},
+        {"word":"money","size":7},
+        {"word":"happiness","size":8},
+        {"word":"business","size":9},
+        {"word":"family","size":9},
+        {"word":"future","size":8},
+        {"word":"religion","size":7},
+        {"word":"anger","size":6},
+        {"word":"learning","size":5}
     ]
 
-    list = [];
+    @observable cloudCategories = [];
+    @observable showCloud = true;
 
     componentDidMount() {
-        for (let i in this.db) {
-            this.list.push([this.db[i]["word"], this.db[i]["size"]])
+        fetch("https://talaikis.com/api/quotes/")
+            .then(res => res.json())
+            .then(json => {
+                this.db = json;
+        })
+        
+        const cat = this.selectedCategories
+        for (let i in cat) {
+            this.cloudCategories.push([cat[i]["word"], cat[i]["size"]])
         }
-        WordCloud.miniumFontSize = '50px'
         WordCloud(this.refs['my-canvas'],
         {
-            list: this.list,
+            list: this.cloudCategories,
             weightFactor: 5,
             fontFamily: 'Times, serif',
             rotationSteps: 2,
             backgroundColor: '#ffe0e0',
-            wait: 350,
         })
+        setTimeout(() => {
+            this.showCloud = false
+        }, 3000);
     }
 
     render() {
         return (
             <div>
-                <canvas className="cloud" ref="my-canvas"></canvas>
+                { this.showCloud ? <canvas className="cloud" ref="my-canvas"></canvas> : null}
             </div>
         )
     }
