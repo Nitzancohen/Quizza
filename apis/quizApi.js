@@ -31,7 +31,8 @@ router.post('/quiz', function (req, res) {
 
 module.exports = router;
 
-/* router.get('/entertodb', function (req, res) {
+/*
+router.get('/entertodb', function (req, res) {
     Quiz.create({
         title: "Personality Quiz",
         desc: "Wanna know how awesome you are? Wanna know what is your main personality type? Start this quiz to see what kind of a person you are.",
@@ -249,4 +250,5 @@ module.exports = router;
         if (err) res.status(500).send(err);
         else res.send(result)
     })
-}) */
+})
+*/
