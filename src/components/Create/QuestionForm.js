@@ -41,11 +41,12 @@ class QuestionForm extends Component {
                 {showNew ? this.showNewQuestionSection() : <p>Sorry, no more questions are available! :(</p>}
                 {this.questions.map((q, i) => (
                     <div className="question" key={i}>
-                        <input type="text" defaultValue={q.text} /> <br />
+                        <p>{i+1}. {q.text}</p>
+                        {/* <input type="text" defaultValue={q.text} /> <br />
                         <input type="text" defaultValue={q.answer1} /> <br />
                         <input type="text" defaultValue={q.answer2} /> <br />
                         <input type="text" defaultValue={q.answer3} /> <br />
-                        <input type="text" defaultValue={q.answer4} /> <br />
+                        <input type="text" defaultValue={q.answer4} /> <br /> */}
                     </div>
                 ))}
             </div>
