@@ -7,7 +7,7 @@ import { Tooltip, PieChart, Pie, Cell } from 'recharts';
 class PieCharts extends Component {
     render() {
         return (
-            <PieChart width={800} height={400} onMouseEnter={this.onPieEnter}>
+            <PieChart width={200} height={200} onMouseEnter={this.onPieEnter}>
                 <Tooltip />
                 <Pie
                     data={this.props.data}

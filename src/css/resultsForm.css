@@ -13,6 +13,15 @@
 }
 
 .share-btn {
-    font-size: 20px;
+    font-size: 25px;
     cursor: pointer;
+    margin: 10px;
+}
+
+#facebook {
+    color: #4867aa;
+}
+
+#twitter {
+    color: #1da1f2;
 }
