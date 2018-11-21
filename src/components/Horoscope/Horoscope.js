@@ -42,7 +42,7 @@ class Horoscope extends Component {
             <h1 id="horoscope-title">Get my horoscope</h1>
             <p>Select your fortune from the list and get your horoscope for today!</p>
             <div className="dropdown">
-                <select  className="btn btn-secondary dropdown-toggle select-button list" value={this.userSign} onChange={this.changeInput}>
+                <select  className="btn btn-secondary dropdown-toggle select-button" id="list" value={this.userSign} onChange={this.changeInput}>
                     <option className="dropdown-item">Aries</option>
                     <option className="dropdown-item">Taurus</option>
                     <option className="dropdown-item">Gemini</option>
@@ -56,7 +56,7 @@ class Horoscope extends Component {
                     <option className="dropdown-item">Aquarius</option>
                     <option className="dropdown-item">Pisces</option>
                 </select>
-                <input className="btn btn-secondary dropdown-toggle horoscop-button" type='button' value='Get my horoscope' onClick={this.getMyHoroscope}/>
+                <input className="dropdown-toggle horoscop-button" type='button' value='Get my horoscope' onClick={this.getMyHoroscope}/>
                 {this.horoscopeData ? this.showHoroscope() : null}
             </div>
             </div>
