@@ -62,14 +62,15 @@
   }
 
   .cloud-desc {
-    font-size: 3rem;
+      font-size: 40px;
+    /* font-size: 3rem; */
     font-weight: bolder;
     color: white;
  }
 
  .cloud-title {
-    margin: 40px;
-    font-size: 40px;
+    margin: 50px;
+    font-size: 80px;
     font-family: 'Luckiest Guy', cursive;
     color: rgb(253, 253, 253);
  }

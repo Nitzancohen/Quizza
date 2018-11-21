@@ -49,7 +49,8 @@ p{
     letter-spacing: 1px;
     text-transform: uppercase;
     text-decoration: none;
-    border-radius: 20px;
+    border: none;
+    border-radius: 5px;
     transition: all 0.5s;
 }
 .horoscop-button:hover {
