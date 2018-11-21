@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
+const path = require("path")
 
 const quizApi = require('./apis/quizApi');
 const userApi = require('./apis/userApi');
@@ -10,6 +11,10 @@ const SERVER_PORT = 8080;
 
 mongoose.connect(process.env.CONNECTION_STRING || 'mongodb://localhost/quizza', () => {
     console.log('Connection to DB established');
+});
+
+app.listen(process.env.PORT || SERVER_PORT, () => {
+    console.log('Server started')
 });
 
 app.use(function (req, res, next) {
@@ -27,6 +32,11 @@ app.use(express.static('node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.listen(process.env.PORT || SERVER_PORT, () => {
-    console.log('Server started')
-});
+
+app.get('*', function (req, res) {
+    res.sendFile(path.join(__dirname, './build/index.html'), function (err) {
+        if (err) {
+            res.status(500).send(err)
+        }
+    })
+})
