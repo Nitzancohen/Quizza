@@ -27,8 +27,8 @@ class Cloud extends Component {
 
     getCategories = () => {
         for (let i = 0; i < 20; i++) {
-            let size = Math.floor(Math.random()*5+5);
-            this.selectedCategories.push({"cat": this.db[i]["cat"], "size": size})
+            let size = Math.floor(Math.random() * 5 + 5);
+            this.selectedCategories.push({ "cat": this.db[i]["cat"], "size": size })
         }
     }
 
@@ -70,7 +70,7 @@ class Cloud extends Component {
         else return null;
     }
 
-    checkWord = ()=> {
+    checkWord = () => {
         let cat = this.selectedCategories
         for (let i in cat) {
             if (this.wordInput === cat[i]["cat"]) {
@@ -79,13 +79,29 @@ class Cloud extends Component {
         }
     }
 
-    printQuote = ()=> {
+    printQuote = () => {
         let db = this.db
-        for(let i in db) {
+        for (let i in db) {
             if (this.gueesed) {
-                return <p>{db[i]["quote"]}<br/>-{db[i]["author"]}</p>
+                return <p>{db[i]["quote"]}<br />-{db[i]["author"]}</p>
             }
         }
+    }
+
+    tweetReady = () => {
+        let tweet = '';
+
+        let titleForTweet = result.title.replace(/<(?:.|\n)*?>/gm, '');
+        tweet = encodeURIComponent(titleForTweet)
+        window.open("https://twitter.com/intent/tweet?text=" + tweet, "_blank")
+    }
+
+    facebookReady = () => {
+        let result = this.props.result();
+        let title = '';
+        title = result.title.replace(/<(?:.|\n)*?>/gm, '');
+        let url = ('https://quizza-app.herokuapp.com/')
+        window.open('https://www.facebook.com/sharer/sharer.php?u=' + url + "&quote=" + title, 'facebook-popup', 'height=350,width=600');
     }
 
     render() {
@@ -100,6 +116,8 @@ class Cloud extends Component {
                 </div>
                 {this.printCloudGame()}
                 {this.gueesed ? this.printQuote() : null}
+                <input className="twitter-button resultTitle" type="button" value="share on twitter" onClick={this.tweetReady}><i className="fab fa-twitter"></i></input>
+                <input className="facebook-button resultTitle" type="button" value="share on facebook" onClick={this.facebookReady}><i className="fab fa-facebook-square"></i></input>
             </div>
         )
     }
