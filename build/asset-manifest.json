@@ -1,16 +1,16 @@
 {
-  "main.css": "/static/css/main.7b1109fe.chunk.css",
-  "main.js": "/static/js/main.6005986e.chunk.js",
-  "main.js.map": "/static/js/main.6005986e.chunk.js.map",
+  "main.css": "/static/css/main.42753032.chunk.css",
+  "main.js": "/static/js/main.1c5d517a.chunk.js",
+  "main.js.map": "/static/js/main.1c5d517a.chunk.js.map",
   "static/css/1.9eb0a2d9.chunk.css": "/static/css/1.9eb0a2d9.chunk.css",
   "static/js/1.3da6263a.chunk.js": "/static/js/1.3da6263a.chunk.js",
   "static/js/1.3da6263a.chunk.js.map": "/static/js/1.3da6263a.chunk.js.map",
   "runtime~main.js": "/static/js/runtime~main.229c360f.js",
   "runtime~main.js.map": "/static/js/runtime~main.229c360f.js.map",
-  "static/css/1.414a7095.chunk.css.map": "/static/css/1.414a7095.chunk.css.map",
+  "static/css/1.9eb0a2d9.chunk.css.map": "/static/css/1.9eb0a2d9.chunk.css.map",
   "static/media/landing.css": "/static/media/Purple-Background-Wallpaper-HD.d3273e7a.jpg",
-  "static/css/main.84622002.chunk.css.map": "/static/css/main.84622002.chunk.css.map",
+  "static/css/main.42753032.chunk.css.map": "/static/css/main.42753032.chunk.css.map",
   "index.html": "/index.html",
-  "precache-manifest.656ea55132c086d52754caf768ac43a5.js": "/precache-manifest.656ea55132c086d52754caf768ac43a5.js",
+  "precache-manifest.11b3046beb59bc3d5eb7ab3839d7467a.js": "/precache-manifest.11b3046beb59bc3d5eb7ab3839d7467a.js",
   "service-worker.js": "/service-worker.js"
 }
