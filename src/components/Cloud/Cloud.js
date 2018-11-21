@@ -26,7 +26,7 @@ class Cloud extends Component {
     }
 
     getCategories = () => {
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 40; i++) {
             let size = Math.floor(Math.random() * 5 + 5);
             this.selectedCategories.push({ "cat": this.db[i]["cat"], "size": size })
         }
@@ -88,36 +88,21 @@ class Cloud extends Component {
         }
     }
 
-    tweetReady = () => {
-        let tweet = '';
-
-        // let titleForTweet = result.title.replace(/<(?:.|\n)*?>/gm, '');
-        // tweet = encodeURIComponent(titleForTweet)
-        window.open("https://twitter.com/intent/tweet?text=" + tweet, "_blank")
-    }
-
-    facebookReady = () => {
-        let result = this.props.result();
-        let title = '';
-        title = result.title.replace(/<(?:.|\n)*?>/gm, '');
-        let url = ('https://quizza-app.herokuapp.com/')
-        window.open('https://www.facebook.com/sharer/sharer.php?u=' + url + "&quote=" + title, 'facebook-popup', 'height=350,width=600');
-    }
-
     render() {
         return (
             <div>
                 <div>
-                    <h2>Cloud Game</h2>
-                    <p>Description</p>
-                    {this.showCloud ? <input type="button" name="start-button" onClick={this.startGame} value="Start Game!" /> : null}
+                    <h1 className="cloud-title">Cloud Game</h1>
+                    <h2 className="cloud-desc">What quote best fits you?
+                        <br />
+                        Start the game to find out!
+                    </h2>
+                    {this.showCloud ? <input type="button" className="start-button" onClick={this.startGame} value="Start Game!" /> : null}
                     <br />
-                    {this.showCloud ? <canvas className="cloud" id="mc" ref="my-canvas"></canvas> : null}
+                    {this.showCloud ? <canvas className="cloud" height='400' width='450' id="mc" ref="my-canvas" ></canvas> : null}
                 </div>
                 {this.printCloudGame()}
                 {this.gueesed ? this.printQuote() : null}
-                <input className="twitter-button resultTitle" type="button" value="share on twitter" onClick={this.tweetReady}><i className="fab fa-twitter"></i></input>
-                <input className="facebook-button resultTitle" type="button" value="share on facebook" onClick={this.facebookReady}><i className="fab fa-facebook-square"></i></input>
             </div>
         )
     }
