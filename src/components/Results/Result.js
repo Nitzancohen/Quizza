@@ -3,35 +3,33 @@ import Analytics from '../analytics/Analytics';
 import '../../css/resultsForm.css'
 
 class Result extends Component {
-    
-    resultReady = () => {
+
+    tweetReady = () => {
         let result = this.props.result();
         let tweet = '';
 
         let titleForTweet = result.title.replace(/<(?:.|\n)*?>/gm, '');
-        let descForTweet = result.desc.replace(/<(?:.|\n)*?>/gm, '');
+        tweet = encodeURIComponent(titleForTweet)
+        window.open("https://twitter.com/intent/tweet?text=" + tweet, "_blank")
+    }
 
-        tweet = titleForTweet.length + descForTweet.length <= 136 ?
-            encodeURIComponent(titleForTweet + ' - ' + <br /> + descForTweet) :
-            encodeURIComponent('"' + titleForTweet.substring(0, 133 - descForTweet.length) + '..." -' + descForTweet);
-        if (titleForTweet && descForTweet) {
-            return (
-                <div>
-                    <p className="left-align"> {titleForTweet} </p>
-                    <p className="right-align"> {descForTweet} </p>
-                    <a className='blue-grey darken-2 waves-effect waves-light btn twitter-share-button' target="_blank" rel="noopener noreferrer" href={"https://twitter.com/intent/tweet?text=" + tweet}> Tweet this Quote </a>
-                </div>
-            )
-        }
+    facebookReady = () => {
+        let result = this.props.result();
+        let title = '';
+        title = result.title.replace(/<(?:.|\n)*?>/gm, '');
+        let url = ('https://quizza-app.herokuapp.com/')
+        window.open('https://www.facebook.com/sharer/sharer.php?u=' + url + "&p[quote]=" + title, 'facebook-popup', 'height=350,width=600');
     }
 
     render() {
         let result = this.props.result();
         return (
             <div>
-                <h5>{result.title}</h5>
-                <p>{result.desc}</p>
-                {this.resultReady}
+                <h5 className='resultTitle'>{result.title}</h5>
+                <p className='resultDesc'>{result.desc}</p>
+                <input className="twitter-button resultTitle" type="button" value="share on twitter" onClick={this.tweetReady} />
+                <input className="facebook-button resultTitle" type="button" value="share on facebook" onClick={this.facebookReady} />
+                <br></br>
                 <Analytics />
             </div >
         );

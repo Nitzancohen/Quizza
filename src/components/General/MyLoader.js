@@ -11,7 +11,7 @@ export class MyLoader extends Component {
                     <div>{this.props.children}</div>
                     :
                     (<div className="loader-container">
-                        <Loader type="Triangle" color="#F7CE3E" />
+                        <Loader type="Puff" color="rgb(217, 144, 230)" />
                     </div>)
                 }
 
