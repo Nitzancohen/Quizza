@@ -28,7 +28,7 @@ p{
     color: black;
 }
 
-.list{
+#list{
     overflow:scroll ;
     max-height: 150px;
     background-color: white;
@@ -37,4 +37,27 @@ p{
 
 #horoscope-title{
     margin-top: 20px;
+}
+
+.horoscop-button {
+    display: inline-block;
+    background-color: #9d5c7a;
+    padding: 12px 18px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 630;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: all 0.5s;
+}
+.horoscop-button:hover {
+    background-color: #581a3b;
+}
+
+#horo-desc {
+    font-size: 40px;
+    font-family: 'Luckiest Guy', cursive;
+    color: rgb(253, 253, 253);
 }

@@ -3,20 +3,17 @@ import { observer, inject } from "mobx-react";
 import { observable } from "mobx";
 import WordCloud from 'wordcloud';
 import '../../css/cloud.css';
-
 @inject('store')
 @observer
 class Cloud extends Component {
-
     @observable showCloud = true;
     @observable gameStarted = false;
     @observable gueesed = false;
     @observable wordInput = "";
     @observable cloudCategories = [];
     db = [];
-    selectedCategories = []
-
-
+    selectedCategories = [];
+    selectedQ = '';
     componentDidMount() {
         fetch("https://talaikis.com/api/quotes/").then(res => res.json()).then(json => {
             this.db = json;
@@ -24,19 +21,16 @@ class Cloud extends Component {
             this.getCategories()
         })
     }
-
     getCategories = () => {
-        for (let i = 0; i < 40; i++) {
+        for (let i = 0; i < 20; i++) {
             let size = Math.floor(Math.random() * 5 + 5);
             this.selectedCategories.push({ "cat": this.db[i]["cat"], "size": size })
         }
     }
-
     inputChange = (e) => {
         this.wordInput = e.target.value
         console.log(this.wordInput)
     }
-
     startGame = () => {
         const cat = this.selectedCategories
         for (let i in cat) {
@@ -56,7 +50,6 @@ class Cloud extends Component {
             this.gameStarted = true;
         }, 3000);
     }
-
     printCloudGame = () => {
         if (this.gameStarted) {
             return (
@@ -69,7 +62,6 @@ class Cloud extends Component {
         }
         else return null;
     }
-
     checkWord = () => {
         let cat = this.selectedCategories
         for (let i in cat) {
@@ -78,38 +70,42 @@ class Cloud extends Component {
             } else console.log("try")
         }
     }
-
     printQuote = () => {
         let db = this.db
         for (let i in db) {
             if (this.gueesed) {
+                this.selectedQ = db[i]["quote"] + ' - ' + db[i]["author"];
                 return <p>{db[i]["quote"]}<br />-{db[i]["author"]}</p>
             }
         }
     }
-
+    tweetReady = () => {
+        let tweet = '';
+        let titleForTweet = this.selectedQ.replace(/<(?:.|\n)*?>/gm, '');
+        tweet = encodeURIComponent(titleForTweet)
+        window.open("https://twitter.com/intent/tweet?text=" + tweet, "_blank")
+    }
     render() {
         return (
             <div>
                 <div>
                     <h1 className="cloud-title">Cloud Game</h1>
                     <h2 className="cloud-desc">What quote best fits you?
-                        <br />
+                       <br />
                         Start the game to find out!
-                    </h2>
-                    {this.showCloud ? <input type="button" className="start-button" onClick={this.startGame} value="Start Game!" /> : null}
+                   </h2>
+                    {this.showCloud ? <input type="button" name="start-button" onClick={this.startGame} value="Start Game!" /> : null}
                     <br />
-                    {this.showCloud ? <canvas className="cloud" height='400' width='450' id="mc" ref="my-canvas" ></canvas> : null}
+                    {this.showCloud ? <canvas className="cloud" id="mc" ref="my-canvas"></canvas> : null}
                 </div>
                 {this.printCloudGame()}
                 {this.gueesed ? this.printQuote() : null}
+                <i className="fab fa-twitter share-btn" id="twitter" onClick={this.tweetReady}></i>
             </div>
         )
     }
 }
-
 export default Cloud;
-
 /*{ "word": "love", "size": 5 },
         { "word": "health", "size": 6 },
         { "word": "Friendship", "size": 7 },

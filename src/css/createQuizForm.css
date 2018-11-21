@@ -26,15 +26,29 @@
     font-weight: bold;
     font-size: 15px;
    }
-   .save-button{
-       background-color: rgba(251, 253, 255, 0.733);
-       color:rgb(160, 1, 160);
-       height: 40px;
-       width: 150px;
-       font-size: 20px;
-       border-radius: 10px;
-       margin: 5px;
-   }
+   .save-button {
+    /* background-color: rgba(251, 253, 255, 0.733);
+    color:rgb(160, 1, 160);
+    height: 40px;
+    width: 150px;
+    font-size: 20px;
+    border-radius: 10px;
+    margin: 5px; */
+    display: inline-block;
+    background-color: #9d5c7a;
+    padding: 12px 18px;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 630;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 20px;
+    transition: all 0.5s;
+}
+.save-button:hover {
+ background-color: #581a3b;
+}
    .plus{
     background-color: rgba(251, 253, 255, 0.733);
     color:rgb(160, 1, 160);
@@ -69,3 +83,4 @@ input, textarea{
 .BackButton:link, .BackButton:hover, .BackButton:visited , .BackButton:active{
     text-decoration: none;
 }
+

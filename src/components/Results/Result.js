@@ -27,12 +27,16 @@ class Result extends Component {
             <div>
                 <h5 className='resultTitle'>{result.title}</h5>
                 <p className='resultDesc'>{result.desc}</p>
-                <i className="fab fa-twitter share-btn" id="twitter" onClick={this.tweetReady}></i> 
+                <i className="fab fa-twitter share-btn" id="twitter" onClick={this.tweetReady}></i>
                 <i className="fab fa-facebook-square share-btn" id="facebook" onClick={this.facebookReady}></i>
                 <br></br>
                 <Analytics />
             </div >
         );
     }
+
+
+
+
 }
 export default Result;
