@@ -91,8 +91,8 @@ class Cloud extends Component {
     tweetReady = () => {
         let tweet = '';
 
-        let titleForTweet = result.title.replace(/<(?:.|\n)*?>/gm, '');
-        tweet = encodeURIComponent(titleForTweet)
+        // let titleForTweet = result.title.replace(/<(?:.|\n)*?>/gm, '');
+        // tweet = encodeURIComponent(titleForTweet)
         window.open("https://twitter.com/intent/tweet?text=" + tweet, "_blank")
     }
 
