@@ -24,7 +24,7 @@ class QuizStore {
     }
 
     @action getCurrentQuizz = async (quizID)=> { 
-        const currentQuizz = await axios.get('/quiz/' + quizID);
+        const currentQuizz = await axios.get('/getquiz/' + quizID);
         this.quiz = currentQuizz.data;
     }
 
