@@ -42,3 +42,24 @@
     font-size: 18px;
     border-radius: 8px;
 }
+
+.share {
+    max-width: 150px;
+    margin-top: 0.8em;
+    margin-right: 10%;
+    margin-bottom: 2.5em;
+    padding: 3px 7px;
+    float: right;
+    background-color: rgba(255, 255, 255, 0.4);
+    font-size: 0.8em;
+    font-family: 'Raleway', sans-serif;
+    color: #fff;
+    font-weight: 400;
+    text-align: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+  }
+  .share a {
+    text-decoration: none;
+    color: #fff;
+  }

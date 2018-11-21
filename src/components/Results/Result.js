@@ -27,8 +27,8 @@ class Result extends Component {
             <div>
                 <h5 className='resultTitle'>{result.title}</h5>
                 <p className='resultDesc'>{result.desc}</p>
-                <input className="twitter-button resultTitle" type="button" value="share on twitter" onClick={this.tweetReady}><i className="fab fa-twitter"></i></input>
-                <input className="facebook-button resultTitle" type="button" value="share on facebook" onClick={this.facebookReady}><i className="fab fa-facebook-square"></i></input>
+                <i className="fab fa-twitter share-btn" id="facebook" onClick={this.tweetReady}></i>
+                <i className="fab fa-facebook-square share-btn" id="twitter" onClick={this.facebookReady}></i>
                 <br></br>
                 <Analytics />
             </div >

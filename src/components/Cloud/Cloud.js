@@ -14,8 +14,8 @@ class Cloud extends Component {
     @observable wordInput = "";
     @observable cloudCategories = [];
     db = [];
-    selectedCategories = []
-
+    selectedCategories = [];
+    selectedQ = '';
 
     componentDidMount() {
         fetch("https://talaikis.com/api/quotes/").then(res => res.json()).then(json => {
@@ -83,6 +83,7 @@ class Cloud extends Component {
         let db = this.db
         for (let i in db) {
             if (this.gueesed) {
+                this.selectedQ = db[i]["quote"]+ ' - ' + db[i]["author"];
                 return <p>{db[i]["quote"]}<br />-{db[i]["author"]}</p>
             }
         }
@@ -90,18 +91,9 @@ class Cloud extends Component {
 
     tweetReady = () => {
         let tweet = '';
-
-        let titleForTweet = result.title.replace(/<(?:.|\n)*?>/gm, '');
+        let titleForTweet = this.selectedQ.replace(/<(?:.|\n)*?>/gm, '');
         tweet = encodeURIComponent(titleForTweet)
         window.open("https://twitter.com/intent/tweet?text=" + tweet, "_blank")
-    }
-
-    facebookReady = () => {
-        let result = this.props.result();
-        let title = '';
-        title = result.title.replace(/<(?:.|\n)*?>/gm, '');
-        let url = ('https://quizza-app.herokuapp.com/')
-        window.open('https://www.facebook.com/sharer/sharer.php?u=' + url + "&quote=" + title, 'facebook-popup', 'height=350,width=600');
     }
 
     render() {
@@ -116,8 +108,8 @@ class Cloud extends Component {
                 </div>
                 {this.printCloudGame()}
                 {this.gueesed ? this.printQuote() : null}
-                <input className="twitter-button resultTitle" type="button" value="share on twitter" onClick={this.tweetReady}><i className="fab fa-twitter"></i></input>
-                <input className="facebook-button resultTitle" type="button" value="share on facebook" onClick={this.facebookReady}><i className="fab fa-facebook-square"></i></input>
+                <i className="fab fa-twitter share-btn" id="facebook" onClick={this.tweetReady}></i>
+                {/* <input className="twitter-button resultTitle share" type="button" value="share on twitter" onClick={this.tweetReady}><i className="fab fa-twitter"></i></input> */}
             </div>
         )
     }

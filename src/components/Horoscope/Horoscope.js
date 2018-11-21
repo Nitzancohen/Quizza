@@ -56,7 +56,8 @@ class Horoscope extends Component {
                     <option className="dropdown-item">Aquarius</option>
                     <option className="dropdown-item">Pisces</option>
                 </select>
-                <input className="btn btn-secondary dropdown-toggle horoscop-button" type='button' value='Get my horoscope' onClick={this.getMyHoroscope}/>
+                <input className="dropdown-toggle horoscop-button" type='button' value='Get my horoscope' onClick={this.getMyHoroscope}/>
+                {/* <input className="btn btn-secondary dropdown-toggle horoscop-button" type='button' value='Get my horoscope' onClick={this.getMyHoroscope}/> */}
                 {this.horoscopeData ? this.showHoroscope() : null}
             </div>
             </div>
