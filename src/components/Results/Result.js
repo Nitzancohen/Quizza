@@ -18,7 +18,7 @@ class Result extends Component {
         let title = '';
         title = result.title.replace(/<(?:.|\n)*?>/gm, '');
         let url = ('https://quizza-app.herokuapp.com/')
-        window.open('https://www.facebook.com/sharer/sharer.php?u=' + url + "&p[quote]=" + title, 'facebook-popup', 'height=350,width=600');
+        window.open('https://www.facebook.com/sharer.php?u=' + url + "&quote=" + title, 'facebook-popup', 'height=350,width=600');
     }
 
     render() {
