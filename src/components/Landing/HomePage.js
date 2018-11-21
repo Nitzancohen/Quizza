@@ -24,7 +24,7 @@ class HomePage extends Component {
                         <div className="describe">Pick your quote for today by our game!</div>
                     </div></Link>
                     <Link to="/horoscope"><div className="app horoscope">
-                        <h2 className="header">WHAT YOUR HOROSCOPE?</h2><br />
+                        <h2 className="header">WHAT'S YOUR HOROSCOPE?</h2><br />
                         <span className="icon"><i className="far fa-star"></i></span>
                         <div className="describe">What about your luck today? You will never know but we can give you some idea.</div>
                     </div></Link>

@@ -54,7 +54,7 @@ font-size: 20px;
  font-size: 50px;
 }
 .app:hover{
-   background-color: rgb(182, 178, 178); 
+   background-color: #f373f38f; 
 }
 .describe{
     display: none;
