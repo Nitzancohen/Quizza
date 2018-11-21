@@ -1,9 +1,7 @@
 
 /* Badges */
 
-/* .analytics-container {
-    font-family: var(--body-font);
-  }
+/* 
   
   .badges-container {
     display: grid;
@@ -41,6 +39,9 @@
   } */
 
   /* GENERAL VIEWS */
+  .analytics-container {
+    width: 100%;
+  }
 
   .chartName {
     font-size: 18px;
