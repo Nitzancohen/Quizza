@@ -74,7 +74,7 @@ class Cloud extends Component {
         let db = this.db
         for (let i in db) {
             if (this.gueesed) {
-                this.selectedQ = db[i]["quote"]+ ' - ' + db[i]["author"];
+                this.selectedQ = db[i]["quote"] + ' - ' + db[i]["author"];
                 return <p>{db[i]["quote"]}<br />-{db[i]["author"]}</p>
             }
         }
@@ -89,16 +89,18 @@ class Cloud extends Component {
         return (
             <div>
                 <div>
-                    <h2>Cloud Game</h2>
-                    <p>Description</p>
+                    <h1 className="cloud-title">Cloud Game</h1>
+                    <h2 className="cloud-desc">What quote best fits you?
+                       <br />
+                        Start the game to find out!
+                   </h2>
                     {this.showCloud ? <input type="button" name="start-button" onClick={this.startGame} value="Start Game!" /> : null}
                     <br />
                     {this.showCloud ? <canvas className="cloud" id="mc" ref="my-canvas"></canvas> : null}
                 </div>
                 {this.printCloudGame()}
                 {this.gueesed ? this.printQuote() : null}
-                <i className="fab fa-twitter share-btn" id="facebook" onClick={this.tweetReady}></i>
-                {/* <input className="twitter-button resultTitle share" type="button" value="share on twitter" onClick={this.tweetReady}><i className="fab fa-twitter"></i></input> */}
+                <i className="fab fa-twitter share-btn" id="twitter" onClick={this.tweetReady}></i>
             </div>
         )
     }

@@ -55,3 +55,9 @@ p{
 .horoscop-button:hover {
     background-color: #581a3b;
 }
+
+#horo-desc {
+    font-size: 40px;
+    font-family: 'Luckiest Guy', cursive;
+    color: rgb(253, 253, 253);
+}

@@ -40,7 +40,7 @@ class Horoscope extends Component {
     render() {
         return (<div>
             <h1 id="horoscope-title">Get my horoscope</h1>
-            <p>Select your fortune from the list and get your horoscope for today!</p>
+            <h2 id="horo-desc">Select your fortune from the list and get your horoscope for today!</h2>
             <div className="dropdown">
                 <select  className="btn btn-secondary dropdown-toggle select-button" id="list" value={this.userSign} onChange={this.changeInput}>
                     <option className="dropdown-item">Aries</option>
