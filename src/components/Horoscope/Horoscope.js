@@ -42,7 +42,7 @@ class Horoscope extends Component {
             <h1 id="horoscope-title">Get my horoscope</h1>
             <p>Select your fortune from the list and get your horoscope for today!</p>
             <div className="dropdown">
-                <select  className="btn btn-secondary dropdown-toggle select-button list" value={this.userSign} onChange={this.changeInput}>
+                <select  className="btn btn-secondary dropdown-toggle select-button list" style="background-color: white; color: black;" value={this.userSign} onChange={this.changeInput}>
                     <option className="dropdown-item">Aries</option>
                     <option className="dropdown-item">Taurus</option>
                     <option className="dropdown-item">Gemini</option>
