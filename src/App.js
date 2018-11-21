@@ -23,6 +23,7 @@ class App extends Component {
     return (
     <Router>
       <div className="App">
+      <Bubbels></Bubbels>
       {this.navbarHide()}
         <Route path="/" exact render={() => <LandingPage />} />
         <Route path="/quiz" exact render={() => <QuizzesScreen />} />
