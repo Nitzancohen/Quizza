@@ -1,8 +1,7 @@
 # TODO - hackathon #2
 * working on flow
-* users?
-* more analytics, bars, charts and so on...
-* TEMPLATE / THEME!
+* users? => more analytics, bars, charts and so on...
+* TEMPLATE 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
