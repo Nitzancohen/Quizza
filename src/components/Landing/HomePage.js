@@ -18,7 +18,7 @@ class HomePage extends Component {
                         <div className="describe">Join us, and get to know yourself better! 
                             Also you can creat any quiz on your mind!</div>
                     </div></Link>
-                    <Link to="/cloud"><div className="app cloud">
+                    <Link to="/cloud"><div className="app">
                         <h2 className="header">CLOUD GAME</h2><br />
                         <span className="icon"><i className="fas fa-cloud"></i></span>
                         <div className="describe">Pick your quote for today by our game!</div>

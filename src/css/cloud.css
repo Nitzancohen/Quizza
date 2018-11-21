@@ -1,8 +1,28 @@
+.cloud-title {
+    margin: 50px;
+    font-size: 80px;
+    font-family: 'Luckiest Guy', cursive;
+    color: rgb(253, 253, 253);
+}
+.cloud-desc {
+    font-size: 3rem;
+    font-weight: bolder;
+}
+.start-button {
+    height: 50px;
+    width: 185px;
+    font-size: 30px;
+    border-radius: 10px;
+    background-color: #e2b1ec;
+    margin-top: 15px;
+}
 .cloud {
     animation: fadein 4s;
-    -moz-animation: fadein 2s; 
+    -moz-animation: fadein 4s; 
     -webkit-animation: fadein 4s; 
-    -o-animation: fadein 2s; 
+    -o-animation: fadein 4s; 
+    animation-duration: 4s;
+    border-radius: 15px;
 }
 @keyframes fadein {
     from {

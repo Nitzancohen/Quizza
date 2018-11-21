@@ -26,7 +26,7 @@ class Cloud extends Component {
     }
 
     getCategories = () => {
-        for (let i = 0; i < 20; i++) {
+        for (let i = 0; i < 40; i++) {
             let size = Math.floor(Math.random()*5+5);
             this.selectedCategories.push({"cat": this.db[i]["cat"], "size": size})
         }
@@ -92,11 +92,14 @@ class Cloud extends Component {
         return (
             <div>
                 <div>
-                    <h2>Cloud Game</h2>
-                    <p>Description</p>
-                    {this.showCloud ? <input type="button" name="start-button" onClick={this.startGame} value="Start Game!" /> : null}
+                    <h1 className="cloud-title">Cloud Game</h1>
+                    <h2 className="cloud-desc">What quote best fits you?
+                        <br/>
+                        Start the game to find out!
+                    </h2>
+                    {this.showCloud ? <input type="button" className="start-button" onClick={this.startGame} value="Start Game!" /> : null}
                     <br />
-                    {this.showCloud ? <canvas className="cloud" id="mc" ref="my-canvas"></canvas> : null}
+                    {this.showCloud ? <canvas className="cloud" height='400' width='450' id="mc" ref="my-canvas" ></canvas> : null}
                 </div>
                 {this.printCloudGame()}
                 {this.gueesed ? this.printQuote() : null}
