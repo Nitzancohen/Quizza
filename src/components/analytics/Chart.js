@@ -32,7 +32,8 @@ class Chart extends Component {
         results.map((r, i) => this.data[i].name = r.title)
 
         for (let user of users) {
-            let score = user.quizzes.filter(quiz => quiz.qID === this.props.store.quiz._id)[0].score
+            console.log(user.quizzes)
+            let score = user.quizzes.filter(quiz => quiz && quiz.qID === this.props.store.quiz._id)[0].score
             this.data[score - 1].value++
         }
     }
