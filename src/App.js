@@ -10,6 +10,7 @@ import './App.css';
 import Horoscope from './components/Horoscope/Horoscope';
 import Cloud from './components/Cloud/Cloud';
 import Quiz from './components/Quiz/Quiz';
+import Bubbels from '../General/bubbles';
 
 @inject('store')
 @observer
