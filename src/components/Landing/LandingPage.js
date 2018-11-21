@@ -32,7 +32,7 @@ class LandingPage extends Component {
                 <div className="input-enter">
                     <span className="username"> Enter your name and start the fun!</span><br></br><br></br><input className="input-username" type="text" name="userName" onChange={this.inputChange} value={this.userName} />
                     <br />
-                    <input className="LoginButton" type="button" onClick={this.login} value="Start playing!!" />
+                    <input className="LoginButton" type="button" onClick={this.login} value="Start playing" />
                     <span></span>
                 </div>
             </div>
