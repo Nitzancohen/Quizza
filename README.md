@@ -1,8 +1,5 @@
 # TODO - hackathon #2
-* add analytics and connecting with data 
 * working on flow
-* features
-* modal \ popup??
 * users?
 * more analytics, bars, charts and so on...
 * TEMPLATE / THEME!
