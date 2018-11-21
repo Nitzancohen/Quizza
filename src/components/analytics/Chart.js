@@ -15,7 +15,7 @@ class Chart extends Component {
 
     getData = async () => {
         let quizID = this.props.store.quiz._id;
-        let users = await axios.get('http://localhost:8080/user/quizzes/' + quizID)
+        let users = await axios.get('/user/quizzes/' + quizID)
         this.sortResults(users.data);
         this.loaded = true;
     };
